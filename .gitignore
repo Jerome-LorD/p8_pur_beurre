@@ -1,2 +1,6 @@
+__pycache__/
+*.py[cod]
 pbenv
 .vscode
+.env
+**/node_modules/
