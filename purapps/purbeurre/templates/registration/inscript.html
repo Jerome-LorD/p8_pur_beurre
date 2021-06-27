@@ -1,0 +1,22 @@
+<!-- templates/registration/inscription.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Inscription</h2>
+<form method="post">
+  {% csrf_token %}
+ {# {{ form_ins.as_p }} #}
+
+{% for field in form_ins %}
+  <p>
+    {{ field.label_tag }}<br>
+    {{ field }}
+    {% for error in field.errors %}
+      <p style="color: red">{{ error }}</p>
+    {% endfor %}
+  </p>
+{% endfor %}
+
+  <button type="submit">Valider</button>
+</form>
+{% endblock %}
