@@ -80,3 +80,23 @@ CREATE TABLE IF NOT EXISTS public.categorie_product
 --             ON categorie_product.categorie_id = categorie.id
 --             WHERE categorie.id = 1  )
 --             ORDER BY random() LIMIT 1;
+
+-- SELECT p.name, n.type, p.brand, p.stores, p.url, p.id
+--         FROM purbeurre_product p
+--         JOIN purbeurre_nutriscore n
+--         ON n.id = p.nutriscore_id
+--         JOIN purbeurre_product_categories cp
+--         ON cp.product_id = p.id
+--         JOIN purbeurre_category c
+--         ON cp.category_id = c.id
+--         WHERE c.id = 2 and n.type < (
+--             SELECT string_agg(DISTINCT purbeurre_nutriscore.type, ', ') AS liste
+--             FROM purbeurre_product
+--             JOIN purbeurre_nutriscore
+--             ON purbeurre_nutriscore.id = purbeurre_product.nutriscore_id
+--             JOIN purbeurre_product_categories
+--             ON purbeurre_product_categories.product_id = purbeurre_product.id
+--             JOIN purbeurre_category
+--             ON purbeurre_product_categories.category_id = purbeurre_category.id
+--             WHERE purbeurre_category.id = 2  )
+--             ORDER BY random() LIMIT 1;

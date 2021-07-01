@@ -2,7 +2,7 @@
 from django.apps import AppConfig
 
 
-class UsersConfig(AppConfig):
+class PurauthConfig(AppConfig):
     """UsersConfig class."""
 
     default_auto_field = "django.db.models.BigAutoField"

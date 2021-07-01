@@ -1,0 +1,39 @@
+<!-- templates/registration/inscription.html -->
+{% extends 'base.html' %}
+
+{% block inscription %}
+
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold">Inscription</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                    <div class="input-group mb-3 d-flex justify-content-center">
+
+                    <form method="post">
+                      {% csrf_token %}
+
+                    {% for field in form_ins %}
+                      <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% for error in field.errors %}
+                          <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                      </p>
+                    {% endfor %}
+
+                      <button type="submit">Valider</button>
+                    </form>
+
+
+                       </div>
+                    </div>
+                    </div>
+
+                    </div>
+        </header>                
+{% endblock %}

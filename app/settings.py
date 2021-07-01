@@ -10,12 +10,28 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import psycopg2.extensions
 
 from pathlib import Path
 
+from dotenv import load_dotenv, find_dotenv  # type: ignore
+
+load_dotenv(find_dotenv())
+
+
+DB_ORIGIN_BASE_NAME = os.getenv("DB_ORIGIN_BASE_NAME")
+DB_ORIGIN_BASE_PASSWD = os.getenv("DB_ORIGIN_BASE_PASSWD")
+DB_HOST = os.getenv("DB_HOST")
+DB_APP_PASSWD = os.getenv("DB_APP_PASSWD")
+DB_APP_USER = os.getenv("DB_APP_USER")
+DB_SCHEMA_NAME = os.getenv("DB_SCHEMA_NAME")
+
+# DATABASE_DEFAULT = os.getenv("DATABASE_DEFAULT")
+# DATABASE_DATA = os.getenv("DATABASE_DATA")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+SQL_FILE = BASE_DIR / "sql/offdb_p8.sql"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -31,6 +47,10 @@ else:
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 
+# debug toolbar internal ip's
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -41,7 +61,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "purbeurre.apps.PurbeurreConfig",
+    "django_extensions",
+    "purapps.purbeurre",
+    "purapps.purauth",
+    "debug_toolbar",  # debug toolbar
 ]
 
 MIDDLEWARE = [
@@ -52,6 +75,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",  # debug toolbar
 ]
 
 ROOT_URLCONF = "app.urls"
@@ -81,14 +105,16 @@ WSGI_APPLICATION = "app.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "",
-        "USER": "",
-        "PASSWORD": "",
+        "NAME": DB_ORIGIN_BASE_NAME,
+        "USER": DB_APP_USER,
+        "PASSWORD": DB_ORIGIN_BASE_PASSWD,
         "HOST": "localhost",
-        "PORT": "7999",
+        "PORT": "",
+        "OPTIONS": {
+            "isolation_level": psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -126,10 +152,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "/purbeurre/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATIC_ROOT = ""
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Custom user
+AUTH_USER_MODEL = "purauth.User"
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = "/"
