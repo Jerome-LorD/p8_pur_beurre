@@ -28,6 +28,7 @@ DB_APP_USER=<yourusername>
 ### Usage
 Create the database and populate it. In the terminal type :
 `py manage.py createdb`
+
 When the job is done, type :
 `py manage.py runserver`
 
