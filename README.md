@@ -1,9 +1,9 @@
 # P8 Pur Beurre
-##About
+## About
 In progress, the project is under construction for the moment.
 
 
-##Installation
+## Installation
 First, you have to create the database
 1. Clone the repo
 ```sh
