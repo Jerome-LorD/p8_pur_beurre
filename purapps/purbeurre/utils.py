@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """DatabaseInstaller module."""
 
-
+import re
 import requests
 from typing import List, Any
 from purapps.purbeurre.models import Product, Nutriscore, Category
