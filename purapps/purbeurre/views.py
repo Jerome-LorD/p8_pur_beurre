@@ -1,30 +1,10 @@
 """Purbeurre views module."""
 
 import json
-from django.http.response import JsonResponse
-
-# from django.http.response import HttpResponse
-
-from django.shortcuts import render, redirect, HttpResponse  # , render_to_response
-
-# from django.http import HttpResponse
-from django.views.generic import TemplateView, FormView
+from django.shortcuts import render, HttpResponse
+from django.views.generic import TemplateView
 from purapps.purbeurre.forms import SearchProduct
-
-# from purapps.purauth.forms import NewLoginForm
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate, logout
-
 from purapps.purbeurre.models import Product
-
-# from purapps.purbeurre.models import Product, Substitutes, Category, Nutriscore
-from purapps.purbeurre.utils import Downloader, OffCleaner, Insert
-
-# from django.contrib.auth.decorators import login_required
-
-# from purbeurre.utils import Downloader, OffCleaner, Insert
-
-# from forms import SearchProduct
 
 
 def index(request):
@@ -46,21 +26,6 @@ class HomeView(TemplateView):
     """HomeView class."""
 
     template_name = "home.html"
-
-
-# def inscript(request):
-#     if request.method == "POST":
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get("username")
-#             raw_password = form.cleaned_data.get("password1")
-#             user = authenticate(username=username, password=raw_password)
-#             login(request, user)
-#             return redirect("/home")
-#     else:
-#         form = UserCreationForm()
-#     return render(request, "pages/inscript.html", {"form_ins": form})
 
 
 def autocomplete(request):

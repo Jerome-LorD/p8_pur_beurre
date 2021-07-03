@@ -2,11 +2,12 @@ from django.core.management.base import BaseCommand, CommandError
 from purapps.purbeurre.utils import Downloader, OffCleaner, Insert
 from django.core import management
 from django.core.management.commands import flush
+
 from purapps.purbeurre.models import Nutriscore
 
 
 class Command(BaseCommand):
-    """Install or update the database."""
+    """Command class."""
 
     help = "Install or update the database"
 
@@ -22,6 +23,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         """Handle the database creation."""
+        # ./manage.py sqlcreate | psql -U postgres -h localhost -W
         management.call_command("migrate", verbosity=0, interactive=False)
 
         if Nutriscore.objects.filter(type="e").exists():

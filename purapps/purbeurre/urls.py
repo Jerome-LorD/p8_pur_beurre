@@ -6,11 +6,6 @@ from django.views.generic import TemplateView
 
 from . import views
 
-# from purapps import purbeurre
-# from django.contrib.auth import views as auth_views
-
-# app_name = purbeurre
-
 urlpatterns = [
     path("", views.index, name="index"),
     path("", TemplateView.as_view(template_name="pages/home.html"), name="index"),

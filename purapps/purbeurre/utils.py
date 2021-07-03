@@ -1,113 +1,10 @@
 #!/usr/bin/env python
-"""Database cnx."""
+"""DatabaseInstaller module."""
 
-# import mysql.connector  # type: ignore
-import psycopg2
 
-import os
-import re
 import requests
-
-from psycopg2 import sql
-from dotenv import load_dotenv, find_dotenv  # type: ignore
 from typing import List, Any
-
-from purapps.purbeurre.models import Product, Category, Nutriscore
-
-# from app.config import SQL_FILE, DB_NAME
-
-load_dotenv(find_dotenv())
-
-user = os.getenv("OFF_USER")
-password = os.getenv("OFF_PASSWD")
-
-db_user = os.getenv("DB_APP_USER")
-db_password = os.getenv("DB_ORIGIN_BASE_PASSWD")
-off_user = os.getenv("DB_APP_USER")
-off_password = os.getenv("DB_ORIGIN_BASE_PASSWD")
-off_database = os.getenv("DB_ORIGIN_BASE_NAME")
-# host = os.getenv("DB_HOST")
-
-host = "127.0.0.1"
-SQL_FILE = "sql/offdb_p8.sql"
-DB_NAME = "offdb_p8"
-
-
-class Database:
-    """Database class."""
-
-    cnx = None
-
-    def __init__(self, user="", password="", schema=None):
-        """Init."""
-        self.user: str = user
-        self.password: str = password
-        self.schema: str = schema
-
-        if not self.cnx:
-            self.cnx = psycopg2.connect(
-                host=host,
-                database=self.schema,
-                user=self.user,
-                password=self.password,
-            )
-
-        self.cursor = self.cnx.cursor()
-
-    @classmethod
-    def is_connected(cls):
-        """Verify connexion."""
-        return cls.cnx is not None
-
-
-class Create:
-    """Create db, user and tables."""
-
-    def __init__(self):
-        """Init."""
-        self.db = Database(db_user, db_password, off_database)
-
-    # def create_user(self):
-    #     """Create user."""
-    #     try:
-    #         self.db.cursor.execute(
-    #             sql.SQL(
-    #                 """
-    #                 CREATE ROLE {user} WITH ENCRYPTED PASSWORD %s CREATEDB LOGIN;
-    #                 CREATE DATABASE offdb_p8 WITH ENCODING 'UTF-8' OWNER {user};
-    #                 ALTER ROLE {user} SET client_encoding TO 'utf8';
-    #                 ALTER ROLE {user} SET default_transaction_isolation
-    #                 TO 'read committed';
-    #                 ALTER ROLE {user} SET timezone TO 'Europe/Paris';
-    #                 """
-    #             ).format(user=sql.Identifier(user)),
-    #             (password,),
-    #         )
-
-    #         self.db.cnx.commit()
-
-    #     except (Exception, psycopg2.DatabaseError) as err:
-    #         print(f"Something went... wrong: {err}")
-    #         exit(1)
-
-    def create_db(self):
-        """Create db and tables."""
-        try:
-            with open(SQL_FILE) as f:
-                self.db.cursor.execute(f.read())
-
-                # self.db.cursor.execute(
-                #     sql.SQL(
-                #         "GRANT ALL PRIVILEGES ON DATABASE offdb_p8 TO {user};"
-                #     ).format(user=sql.Identifier(user)),
-                # )
-
-            self.db.cnx.commit()
-        except (Exception, psycopg2.DatabaseError) as err:
-            print(f"Something went** wrong: {err}")
-            exit(1)
-
-        self.db.cnx.close()
+from purapps.purbeurre.models import Product, Nutriscore, Category
 
 
 class Downloader:
@@ -143,14 +40,6 @@ class Insert:
     def __init__(self, cleaned_data):
         """Init."""
         self.cleaned_data = cleaned_data
-        self.db = Database(db_user, db_password, off_database)
-
-    def is_data_in_db(self):
-        """Check if the database contains at least 3000 entries."""
-        self.db.cursor.execute("SELECT COUNT(product.id) as tot_prods FROM product")
-        if self.db.cursor.fetchone()[0] >= 3000:
-            return True
-        return False
 
     def insert_data(self):
         """Insert data into DB."""
@@ -160,10 +49,7 @@ class Insert:
                     try:
                         Nutriscore.objects.get(type=product["nutriscore_grade"])
                     except Nutriscore.DoesNotExist:
-                        nut = Nutriscore.objects.create(
-                            type=product["nutriscore_grade"]
-                        )
-                        nut.save()
+                        Nutriscore.objects.create(type=product["nutriscore_grade"])
 
                     try:
                         Product.objects.get(name=product["product_name_fr"])
@@ -173,7 +59,7 @@ class Insert:
                             type=product["nutriscore_grade"]
                         ).values("id")
 
-                        prod = Product.objects.create(
+                        Product.objects.create(
                             name=product["product_name_fr"],
                             url=product["url"],
                             brand=product["brands"],
@@ -181,29 +67,21 @@ class Insert:
                             nutriscore_id=last_nut,
                         )
 
-                        last_product_id = Product.objects.filter(
-                            name=product["product_name_fr"]
-                        ).values("id")[0]
+                        for category in product["categories"].split(","):
+                            categorie = category.strip()
+                            try:
+                                Category.objects.get(name=categorie)
+                            except Category.DoesNotExist:
 
-                        prod.save()
+                                Category.objects.create(name=categorie)
 
-                    for category in product["categories"].split(","):
-                        categorie = category.strip()
-                        try:
-                            Category.objects.get(name=categorie)
-                        except Category.DoesNotExist:
+                            prod = Product.objects.get(name=product["product_name_fr"])
 
-                            cat = Category.objects.create(name=categorie)
-                            cat.save()
+                            category = Category.objects.filter(name=categorie).values(
+                                "id"
+                            )[0]
 
-                            last_categorie_id = Category.objects.filter(
-                                name=categorie
-                            ).values("id")[0]
-
-                            prod.categories.add(
-                                last_product_id.get("id"),
-                                last_categorie_id.get("id"),
-                            )
+                            prod.categories.add(category.get("id"))
 
 
 class Cleaner:
@@ -295,13 +173,3 @@ class OffCleaner(Cleaner):
         normalize_product_without_cariage_return,
         normalize_categories_without_suffix_and_bad_datas,
     ]
-
-
-# if __name__ == "__main__":
-#     for page in range(1, 2):
-#         down_off = Downloader(page)
-#         extracted = down_off.extract_data()
-#         cleaner = OffCleaner()
-#         cleaned = cleaner.clean(extracted)
-#         construct = Insert(cleaned)
-#         construct.insert_data()

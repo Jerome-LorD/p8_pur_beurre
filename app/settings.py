@@ -21,10 +21,10 @@ load_dotenv(find_dotenv())
 
 DB_ORIGIN_BASE_NAME = os.getenv("DB_ORIGIN_BASE_NAME")
 DB_ORIGIN_BASE_PASSWD = os.getenv("DB_ORIGIN_BASE_PASSWD")
-DB_HOST = os.getenv("DB_HOST")
-DB_APP_PASSWD = os.getenv("DB_APP_PASSWD")
+# DB_HOST = os.getenv("DB_HOST")
+# DB_APP_PASSWD = os.getenv("DB_APP_PASSWD")
 DB_APP_USER = os.getenv("DB_APP_USER")
-DB_SCHEMA_NAME = os.getenv("DB_SCHEMA_NAME")
+# DB_SCHEMA_NAME = os.getenv("DB_SCHEMA_NAME")
 
 # DATABASE_DEFAULT = os.getenv("DATABASE_DEFAULT")
 # DATABASE_DATA = os.getenv("DATABASE_DATA")
@@ -152,9 +152,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/purbeurre/static/"
+STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-# STATIC_ROOT = ""
+STATIC_ROOT = "purapps/purbeurre/static/"
 
 
 # Default primary key field type
