@@ -14,7 +14,20 @@ def index(request):
         if search_form.is_valid():
             search_form = SearchProduct()
             product_name = request.POST.get("product_name")
-            result = Product.objects.filter(name__icontains=product_name).values("name")
+            result = (
+                Product.objects.filter(name__iregex=r"^%s$" % product_name)
+                .values("name", "image", "categories", "nutriscore__type")
+                .order_by("-categories")[:1]
+            )
+            # breakpoint()
+            if result:
+                category_id = result[0].get("categories")
+
+                substit = Product.get_substitute(category_id)
+                substitute = substit.name  # .get("name")
+                substriscore = substit.nutriscore.type  # .get("nutriscore__type")
+                image = substit.image  # get("image")
+
     else:
         search_form = SearchProduct()
 
