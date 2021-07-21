@@ -1,10 +1,11 @@
 """Purbeurre views module."""
 
 import json
-from django.shortcuts import render, HttpResponse
-from django.views.generic import TemplateView
+import re
+from django.shortcuts import render, HttpResponse, redirect
 from purapps.purbeurre.forms import SearchProduct
 from purapps.purbeurre.models import Product
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
@@ -14,20 +15,8 @@ def index(request):
         if search_form.is_valid():
             search_form = SearchProduct()
             product_name = request.POST.get("product_name")
-            result = (
-                Product.objects.filter(name__iregex=r"^%s$" % product_name)
-                .values("name", "image", "categories", "nutriscore__type")
-                .order_by("-categories")[:1]
-            )
-            # breakpoint()
-            if result:
-                category_id = result[0].get("categories")
 
-                substit = Product.get_substitute(category_id)
-                substitute = substit.name  # .get("name")
-                substriscore = substit.nutriscore.type  # .get("nutriscore__type")
-                image = substit.image  # get("image")
-
+            return redirect("results", product_name=product_name)
     else:
         search_form = SearchProduct()
 
@@ -35,10 +24,68 @@ def index(request):
     return render(request, "pages/home.html", context and locals())
 
 
-class HomeView(TemplateView):
-    """HomeView class."""
+def results(request, product_name):
+    """Results."""
+    if request.method == "POST":
+        search_form = SearchProduct(request.POST or None)
+        if search_form.is_valid():
+            search_form = SearchProduct()
+            product_name = request.POST.get("product_name")
 
-    template_name = "home.html"
+            return redirect("results", product_name=product_name)
+
+    search_form = SearchProduct()
+    result = Product.objects.filter(name__iregex=r"^%s$" % product_name)
+    if result:
+
+        origin_prod_name = result[0].name
+        origin_nutriscore = result[0].nutriscore.type.capitalize()
+        origin_category = result[0].categories.values("id")
+        origin_image = result[0].image
+
+        substit = Product.find_substitute(result[0].id)
+        page = request.GET.get("page", 1)
+        paginator = Paginator(substit, 8)
+        try:
+            page_result = paginator.page(page)
+        except PageNotAnInteger:
+            page_result = paginator.page(1)
+        except EmptyPage:
+            page_result = paginator.page(paginator.num_pages)
+
+        return render(
+            request,
+            "pages/results.html",
+            {
+                "search_form": search_form,
+                "substit": substit,
+                "origin_prod_name": origin_prod_name,
+                "origin_image": origin_image,
+                "origin_nutriscore": origin_nutriscore,
+                "page_result": page_result,
+            },
+        )
+    else:
+        no_result = Product.objects.filter(name__icontains="%s" % product_name)
+        page_no_res = request.GET.get("page", 1)
+        paginator = Paginator(no_result, 8)
+        try:
+            page_no_result = paginator.page(page_no_res)
+        except PageNotAnInteger:
+            page_no_result = paginator.page(1)
+        except EmptyPage:
+            page_no_result = paginator.page(paginator.num_pages)
+        search_form = SearchProduct()
+        return render(
+            request,
+            "pages/results.html",
+            {
+                "search_form": search_form,
+                "search_term": product_name,
+                "page_no_result": page_no_result,
+                "no_result": no_result,
+            },
+        )
 
 
 def autocomplete(request):
