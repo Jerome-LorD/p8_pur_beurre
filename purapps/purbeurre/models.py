@@ -38,7 +38,7 @@ class Product(models.Model):
     image = models.URLField(max_length=255, default=False, blank=True, null=True)
     url = models.CharField(max_length=255, unique=True, default=False, blank=True)
     categories = models.ManyToManyField(Category, related_name="category_owner")
-    nutriscore = models.ForeignKey(Nutriscore, on_delete=models.CASCADE, null=True)
+    nutriscore = models.ForeignKey(Nutriscore, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         """Return str representation."""
@@ -46,41 +46,37 @@ class Product(models.Model):
  - {self.nutriscore} - {self.image}"
 
     @classmethod
-    def get_substitute(cls, category_id):
-        """Get the substitute."""
-        result = (
-            Product.objects.filter(categories=category_id)
-            .order_by("nutriscore__type")
-            .first()  # ,
-            # nutriscore__type__lt=Subquery(
-            #         Product.objects.annotate(fake_group_by=Value(1))
-            #         .values("fake_group_by")
-            #         .annotate(
-            #             liste=StringAgg(
-            #                 "nutriscore__type", delimiter=", ", distinct=True
-            #             )
-            #         )
-            #         .values("liste")
-            #         .filter(categories=category_id)
-            #     ),
-            # ).values("name", "nutriscore__type", "image")
-            # # .order_by("nutriscore__type")
-            # .order_by("?")[:1]
-        )
-        # breakpoint()
-        return (
-            result
-            if result
-            else {"name": "pas de meilleur nutriscore pour ce produit."}
+    def find_substitute(cls, product_id):
+        """Find a substitute."""
+        data = Product.objects.filter(id=product_id).order_by("categories")
+        categories_id = data[0].categories.values("id").order_by("id")
+        sorted_categories = (
+            Product.objects.filter(categories__in=categories_id)
+            .values("categories__id")
+            .annotate(tot=Count("id", distinct=True))
+            .order_by("tot")
         )
 
+        offset = 0
+        best_cat = sorted_categories[offset].get("categories__id")
+        substitute = Product.objects.filter(
+            categories__id=best_cat, nutriscore__type__lt=data[0].nutriscore.type
+        )
 
-class Substitutes(models.Model):
-    """Create substitutes table."""
+        while not substitute:
+            best_cat = sorted_categories[offset].get("categories__id")
+            substitute = Product.objects.filter(
+                categories__id=best_cat, nutriscore__type__lt=data[0].nutriscore.type
+            )
 
-    substitute = models.ForeignKey(
-        Product, related_name="substitute", blank=True, on_delete=models.CASCADE
-    )
-    substituted = models.ForeignKey(
-        Product, related_name="substituted", blank=True, on_delete=models.CASCADE
-    )
+            offset += 1
+            if data[0].nutriscore.type > "b":
+                offset_limit = 3
+            offset_limit = 2
+            if offset == offset_limit and not substitute:
+                substitute = data
+        return substitute
+
+    @classmethod
+    def save_substitute(cls, subtitute, user_id):
+        """Save substitute."""
