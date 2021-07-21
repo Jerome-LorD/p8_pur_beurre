@@ -10851,8 +10851,94 @@ body {
   height: 100%;
 }
 
+
+
 .page-section {
   padding: 8rem 0;
+}
+
+a.results {
+  color: blue;
+  text-decoration: underline;
+}
+
+.page-section-results {
+  padding: 8rem 0;
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: url("dist/assets/img/ratatouille-11.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+ 
+}
+
+.min_height {
+  min-height: 60%;
+}
+
+.pic_container {
+  width: 150px;
+  height: 200px;
+  background-color: #c45525;
+  /* margin: 30px 0 0 0; */
+  border-top: 1px solid bisque;
+  border-left: 1px solid bisque;
+  border-right: 1px solid bisque;
+}
+
+.p_name {
+  background-color: #8c492b;
+  text-align: left;
+  padding: 5px 5px;
+  width: 150px;
+  height: 5em;
+  border: 1px solid bisque;
+  color: white;
+  position: relative;
+  z-index: 3;
+}
+
+.p_save {
+  background-color: #8c492b;
+  text-align: left;
+  padding: 5px 5px;
+  border-bottom: 1px solid bisque;
+  border-left: 1px solid bisque;
+  border-right: 1px solid bisque;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.nutriscore {
+  background-color: #20262e;
+  color: #fff;
+  position: relative;
+  right: 20px;
+  top: -300px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.origin_center {
+  /* position: relative;
+  left: 40%; */
+      display: inline flow-root list-item;
+}
+
+.nutri_center {
+  background-color: #20262e;
+  color: #fff;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  right: -135px;
+  top: 11px;
+  text-align: center;
 }
 
 .text-white-75 {
@@ -10942,15 +11028,7 @@ hr.divider-light {
   }
 }
 
-.results {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 4.5rem);
-  background: url("../assets/img/ratatouille-11.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-}
+
 
 header.masthead {
   padding-top: 10rem;
@@ -10981,9 +11059,6 @@ header.masthead h1, header.masthead .h1 {
 @media (min-width: 1200px) {
   header.masthead h1, header.masthead .h1 {
     font-size: 3.5rem;
-  }
-  header.results {
-    background-color: yellowgreen;
   }
 }
 
