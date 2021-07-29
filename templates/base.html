@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
-
+<html lang="fr">
+{% comment %} the one {% endcomment %}
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -112,19 +112,13 @@ $( function() {
         </nav>    
     {% endblock nav %}
 
-    
-
-    {% block masthead %}{% endblock masthead %}
-    {% block login %}{% endblock login %}
-    {% block profile %}{% endblock profile %}
-    {% block inscription %}{% endblock inscription %}
-
-
-
-    <!-- About-->
-    {% block content %}
-
-    {% endblock content %}
+        
+    {% block results %}<!-- Results -->{% endblock results %}
+    {% block masthead %}<!-- Content -->{% endblock masthead %}
+    {% block login %}<!-- Login -->{% endblock login %}
+    {% block profile %}<!-- Profile -->{% endblock profile %}
+    {% block inscription %}<!-- inscript-->{% endblock inscription %}
+    {% block content %}<!-- Content-->{% endblock content %}
 
     <!-- Footer-->
     {% block footer %}
