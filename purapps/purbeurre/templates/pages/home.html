@@ -3,44 +3,30 @@
 {% load static %}
 {% block title %}page d'accueil{% endblock title %}
 
-
-
-
-    <!-- Masthead-->
-    {% block masthead %}
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Du gras, oui, mais de qualité !</h1>
-                        <hr class="divider" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <h2 class="text-white-75 mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
+{% block masthead %}
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold">Du gras, oui, mais de qualité !</h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <h2 class="text-white-75 mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
                     <form method="post">
-
-                    <div class="input-group mb-3">
-                    {% csrf_token %}
-                    {{ search_form }}                    
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-success" type="submit">Chercher</button>
-                    </div>
+                        <div class="input-group mb-3">
+                            {% csrf_token %}
+                            {{ search_form }}                    
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Chercher</button>
+                        </div>
                     </div>
                     </form>
-                    {% for product in result %}
-                        <p>{{ product.name }}</p>
-                    {% endfor %}                    
-                    </div>
-
-
                 </div>
             </div>
-        </header>    
-    {% endblock masthead %}
-
-
-
-
+        </div>
+    </header>    
+{% endblock masthead %}
 
 {% block content %}
         <!-- About-->
@@ -51,97 +37,38 @@
                         <h2 class="text-white mt-0">Colette et Remy</h2>
                         <hr class="divider divider-light" />
                         <p class="text-white-75 mb-4">Pur Beurre est l'initiative de deux amoureux de la gastronomie française, Colette Tatou et Rémy, que vous avez déjà certainement rencontrés dans notre excellent restaurant Ratatouille.</p>
-
                         <img src="{% static 'dist/assets/img/colette-tra.png' %}" class="rounded float-left img-fluid" alt="Colette img">
                         <img src="{% static 'dist/assets/img/remy-tra.png' %}" class="rounded float-right img-fluid" alt="Remy img">
-                    </div>
-                    
+                    </div>  
                 </div>
             </div>
         </section>
-
 
         <!-- Call to action-->
         <section class="page-section bg-dark text-white">
-            <div class="container px-4 px-lg-5 text-center">
+            <div class="container px-4 px-lg-5 text-center flex">
                 <h2 class="mb-4">Contactez-nous</h2>
-                     {% comment %} <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a> {% endcomment %}
-            </div>
-        </section>
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Contactez-nous</h2>
-                        <hr class="divider" />
-                        <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get back to you as soon as possible!</p>
-                    </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                    <div class="col-lg-6">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-phone fs-2 mb-3 text-muted"></i>
 
-                        <div>+1 (555) 123-4567</div>
+                    <div class="col-md-6 small justify-content-start inline-flex_perso">
+                        <!-- phone -->
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" version="1.1" 
+                        style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;" 
+                        viewBox="0 0 333 416.25" x="0px" y="0px" width="30" height="30" fill-rule="evenodd" clip-rule="evenodd">
+                        <defs><style type="text/css">.fil0 {fill:black}</style>
+                        </defs><g><path class="fil0" d="M120 17l28 49c4,7 4,12 -3,17 -12,7 -27,14 -30,27 -7,23 56,133 80,139 12,3 26,-6 39,-13 7,-4 11,-1 16,6l28 48c4,8 6,13 -3,18 -16,9 -32,16 -46,17 -100,5 -218,-199 -163,-283 7,-11 22,-22 38,-31 8,-6 12,-1 16,6z"/></g></svg>
+                    
+                    0605040302
                     </div>
-                </div>
+
+                    <div class="col-md-5 small justify-content-end inline-flex_perso">
+                    <!-- letter -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640" x="0px" y="0px" width="30" height="30" >
+                    <path d="M477.24,110.49a4.21,4.21,0,0,0-.05-.62c0-.05,0-.1,0-.15a4.28,4.28,0,0,0-.12-.54s0-.05,0-.07a4.07,4.07,0,0,0-.22-.58l0-.1a4.31,4.31,0,0,0-.26-.47.41.41,0,0,1-.05-.09c-.12-.17-.24-.33-.37-.49l-.07-.08a3.06,3.06,0,0,0-.36-.36l-.11-.1a4.37,4.37,0,0,0-.48-.37l-.08,0a5.42,5.42,0,0,0-.48-.26l-.07,0-.05,0a4.07,4.07,0,0,0-.58-.22l-.08,0-.51-.12-.18,0a3.88,3.88,0,0,0-.48,0h-433a5.06,5.06,0,0,0-.68,0l-.07,0a4.6,4.6,0,0,0-1.23.36l0,0-.07,0a5.42,5.42,0,0,0-.48.26l-.08,0a4.37,4.37,0,0,0-.48.37l-.11.1a3.06,3.06,0,0,0-.36.36l-.07.08c-.13.16-.25.32-.37.49l0,.09a4.31,4.31,0,0,0-.26.47l0,.1a4.07,4.07,0,0,0-.22.58s0,0,0,.07a4.28,4.28,0,0,0-.12.54s0,.1,0,.15a4.21,4.21,0,0,0-.05.62v291s0,.07,0,.1a3.16,3.16,0,0,0,0,.32c0,.14,0,.27,0,.4s0,.2.07.3.07.27.11.4,0,.09,0,.13,0,.1.07.15.11.26.17.38l.15.28c.06.11.14.21.21.32l.19.26a3.45,3.45,0,0,0,.26.28l.22.23.31.25.25.19.34.2.27.15.06,0a4.87,4.87,0,0,0,.53.21l.13,0a4.87,4.87,0,0,0,.52.12l.18,0a5,5,0,0,0,.67.05H472.41a5,5,0,0,0,.67-.05l.18,0a4.87,4.87,0,0,0,.52-.12l.13,0a4.87,4.87,0,0,0,.53-.21l.06,0,.27-.15.34-.2.25-.19a3.95,3.95,0,0,0,.53-.48,3.45,3.45,0,0,0,.26-.28l.19-.26c.07-.11.15-.21.21-.32l.15-.28c.06-.12.12-.25.17-.38s.05-.09.07-.15,0-.08,0-.13.08-.27.11-.4.05-.2.07-.3,0-.26,0-.4a3.16,3.16,0,0,0,0-.32s0-.07,0-.1ZM272.75,272.89a25.88,25.88,0,0,1-33.5,0L214.9,252.32l-162.14-137H459.24l-162.14,137Zm-228.34-152L204.32,256,44.41,391.12Zm423.18,0V391.12L307.68,256ZM52.76,396.69,183.28,286.4l28.51-24.09L233,280.26a35.51,35.51,0,0,0,46,0l21.24-17.95,26.44,22.35,132.59,112Z"/></svg>
+                    <p>mail@mail.com</p>
+                    </div>
+
+
             </div>
         </section>
+
 {% endblock content %}
