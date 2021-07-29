@@ -21,13 +21,8 @@ load_dotenv(find_dotenv())
 
 DB_ORIGIN_BASE_NAME = os.getenv("DB_ORIGIN_BASE_NAME")
 DB_ORIGIN_BASE_PASSWD = os.getenv("DB_ORIGIN_BASE_PASSWD")
-# DB_HOST = os.getenv("DB_HOST")
-# DB_APP_PASSWD = os.getenv("DB_APP_PASSWD")
 DB_APP_USER = os.getenv("DB_APP_USER")
-# DB_SCHEMA_NAME = os.getenv("DB_SCHEMA_NAME")
 
-# DATABASE_DEFAULT = os.getenv("DATABASE_DEFAULT")
-# DATABASE_DATA = os.getenv("DATABASE_DATA")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,11 +42,6 @@ else:
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 
-# debug toolbar internal ip's
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -64,7 +54,6 @@ INSTALLED_APPS = [
     "django_extensions",
     "purapps.purbeurre",
     "purapps.purauth",
-    "debug_toolbar",  # debug toolbar
 ]
 
 MIDDLEWARE = [
@@ -75,7 +64,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",  # debug toolbar
 ]
 
 ROOT_URLCONF = "app.urls"
@@ -83,7 +71,7 @@ ROOT_URLCONF = "app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [os.path.join(BASE_DIR, "purapps/purbeurre/templates/pages")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
