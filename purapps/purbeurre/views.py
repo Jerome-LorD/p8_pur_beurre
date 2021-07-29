@@ -2,10 +2,12 @@
 
 import json
 import re
+from django.http.response import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 from purapps.purbeurre.forms import SearchProduct
-from purapps.purbeurre.models import Product
+from purapps.purbeurre.models import Product, Substitutes
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 
 def index(request):
@@ -88,6 +90,12 @@ def results(request, product_name):
         )
 
 
+def product_details(request):
+    """Product details."""
+    product = Product.retrieve_substitute()
+    return render(request, "pages/product.html", {"product": product})
+
+
 def autocomplete(request):
     """Jquery autocomplete response."""
     if request.is_ajax() and request.method == "GET":
@@ -101,3 +109,52 @@ def autocomplete(request):
         data = "Le chargement n'a pas pu se faire."
     mimetype = "application/json"
     return HttpResponse(data, mimetype)
+
+
+@csrf_exempt
+def ajax(request):
+    """Ajax post method."""
+    if request.is_ajax():
+        body_unicode = request.body.decode("utf-8")
+        body = json.loads(body_unicode)
+        products = body["products"]
+        user_id = body["user_id"]
+        origin_product = body["origin_product"]
+        print(products, origin_product)
+
+        origin_product = Product.objects.get(name=origin_product)
+
+        for i in products:
+            if Substitutes.objects.filter(
+                product_id=i,
+                reference_id=origin_product.id,
+                user_id=int(user_id),
+            ).exists():
+                pass
+
+            else:
+                t = Substitutes(
+                    product_id=i,
+                    reference_id=origin_product.id,
+                    user_id=int(user_id),
+                )
+                t.save()
+
+        return render(request, "pages/product.html", {"products": products})
+
+
+def favorites(request):
+    """Retrieve favorites."""
+    res = Substitutes.objects.values(
+        "product__name",
+        "product__image",
+        "reference__name",
+        "reference__image",
+        "product__nutriscore__type",
+        "user_id",
+    )
+    search_form = SearchProduct()
+
+    return render(
+        request, "pages/favorites.html", {"products": res, "search_form": search_form}
+    )
