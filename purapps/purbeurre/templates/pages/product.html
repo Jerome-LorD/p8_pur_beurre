@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Produit sauvegardé -- Pur beurre{% endblock title %}
+
+{% block product %}
+<section class="page-section bg-secondary" id="about">
+    <div class="container px-4 px-lg-5 bg-primary">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="prod_rep2" style="background: url('{{product.image}}') repeat-x center; height: 200px;">
+            <mark class="mark_prod">{{product.name}}</mark>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock product %}
+
+{% block content %}
+<section class="page-section bg-moules-frites min_height" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="d-flex justify-content-between w-100">
+                    <div class="nutri_score">
+                        <table class="nutri">
+                        <caption class="caption_nutriscore">NUTRI-SCORE</caption>
+                        <tr>               
+                        {% for letter in "abcde" %}
+                            {% if letter == product.nutriscore.type %}
+                            <td class="nutri_{{product.nutriscore.type.capitalize}}"  width="10px">
+                            {% else %}
+                            <td class="nut_{{letter}}" width="10px">
+                            {% endif %}
+                        {% endfor %}
+                        </td></tr>
+                        </table>
+                    </div>
+                        <table class="table-bordered table-sm table-light text-start">
+                        <tr>
+                        <th class="bg-rooibos-chocolat">Informations nutritionnelles</th><th class="bg-rooibos-chocolat">pour 100g / 100 ml</th>
+                        </tr>
+                        <tr>
+                        <td class="bg-biscuit-trempe">Énergie (kJ)</td><td class="bg-biscuit-trempe">{{energy}} Kj</td>
+                        </tr>
+                        <tr>
+                        <td class="bg-biscuit-trempe">Énergie (kcal)</td><td class="bg-biscuit-trempe">{{energy_kcal}} Kcal</td>
+                        </tr>
+                        <tr>
+                        <td class="bg-biscuit-trempe">Matières grasses / Lipides</td><td class="bg-biscuit-trempe">{{fat}} g</td>
+                        </tr>
+                        <tr>
+                        <td class="bg-biscuit-trempe">Glucides</td><td class="bg-biscuit-trempe">{{carbohydrates}} g</td>
+                        </tr>
+                        <tr>
+                        <td class="bg-biscuit-trempe">Protéines</td><td class="bg-biscuit-trempe">{{proteins}} g</td>
+                        </tr>
+                        <tr>
+                        <td class="bg-biscuit-trempe">Sel</td><td class="bg-biscuit-trempe">{{salt}} g</td>
+                        </tr>
+                        <tr>
+                        <td class="bg-biscuit-trempe">Sodium</td><td class="bg-biscuit-trempe">{{sodium}} g</td>
+                        </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="btn_fiche">
+                        <a class="btn btn-primary" href="{{product.url}}">Voir la fiche d'OpenFoodFacts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock %}
