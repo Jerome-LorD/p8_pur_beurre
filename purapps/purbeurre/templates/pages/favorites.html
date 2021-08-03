@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Mes favoris -- Pur beurre{% endblock title %}
+
+
+{% block content %}
+<section class="page-section bg-moules-frites min_height">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h3>Mes favoris</h3>
+                <hr class="divider" /><br><br>    
+                {% if user.is_authenticated %}
+                    <ul class="list-inline">
+                    {% for item in products %}
+                        <li class="list-inline-item">
+                        <a href="/product/{{item.product.name}}"><div class="pic_container">
+                        <img src="{{ item.product.image }}" class="img-fluid rounded">
+                        </div>
+                        <div class="p_name">
+                            {{item.product.name|truncatechars:40}}
+                        </div>
+                        <div class="p_save transparent">
+                            <input type="checkbox" value="{{i.id}}" id="cbox" onclick="get_substitutes()"> sauvegarder
+                        </div></a>
+                        </li><span class="nutriscore">{{item.product.nutriscore.type.capitalize}}</span>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+          
