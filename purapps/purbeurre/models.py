@@ -1,8 +1,8 @@
 """Models module."""
 
 from django.db import models
-from django.db.models import Subquery, Value, Count, F
-from django.contrib.postgres.aggregates import StringAgg
+from django.db.models import Count
+from django.conf import settings
 
 
 class Nutriscore(models.Model):
@@ -36,6 +36,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=150, default=False, blank=True)
     stores = models.CharField(max_length=150, default=False, blank=True)
     image = models.URLField(max_length=255, default=False, blank=True, null=True)
+    nutriments = models.JSONField()
     url = models.CharField(max_length=255, unique=True, default=False, blank=True)
     categories = models.ManyToManyField(Category, related_name="category_owner")
     nutriscore = models.ForeignKey(Nutriscore, on_delete=models.CASCADE)
@@ -43,7 +44,7 @@ class Product(models.Model):
     def __str__(self) -> str:
         """Return str representation."""
         return f"{self.id} - {self.name} - {self.brand} - {self.stores} - {self.url}\
- - {self.nutriscore} - {self.image}"
+ - {self.nutriscore} - {self.image} - {self.nutriments}"
 
     @classmethod
     def find_substitute(cls, product_id):
@@ -56,27 +57,49 @@ class Product(models.Model):
             .annotate(tot=Count("id", distinct=True))
             .order_by("tot")
         )
-
-        offset = 0
-        best_cat = sorted_categories[offset].get("categories__id")
-        substitute = Product.objects.filter(
-            categories__id=best_cat, nutriscore__type__lt=data[0].nutriscore.type
-        )
-
-        while not substitute:
+        if len(sorted_categories) > 1:
+            offset = 0
             best_cat = sorted_categories[offset].get("categories__id")
             substitute = Product.objects.filter(
                 categories__id=best_cat, nutriscore__type__lt=data[0].nutriscore.type
             )
 
-            offset += 1
-            if data[0].nutriscore.type > "b":
-                offset_limit = 3
-            offset_limit = 2
-            if offset == offset_limit and not substitute:
-                substitute = data
-        return substitute
+            while not substitute:
+                best_cat = sorted_categories[offset].get("categories__id")
+                substitute = Product.objects.filter(
+                    categories__id=best_cat,
+                    nutriscore__type__lt=data[0].nutriscore.type,
+                )
+
+                offset += 1
+                if data[0].nutriscore.type > "b":
+                    offset_limit = 3
+                offset_limit = 2
+                if offset == offset_limit and not substitute:
+                    substitute = data
+            return substitute
+        return data
 
     @classmethod
-    def save_substitute(cls, subtitute, user_id):
-        """Save substitute."""
+    def retrieve_substitute(cls):
+        """Retrieve substitute."""
+        return Substitutes.objects.values("product__name", "reference__name", "user_id")
+
+
+class Substitutes(models.Model):
+    """Create substitutes table."""
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name="user_id",
+        default=False,
+        blank=True,
+        on_delete=models.CASCADE,
+    )
+
+    product = models.ForeignKey(
+        Product, related_name="product", default="", on_delete=models.CASCADE
+    )
+    reference = models.ForeignKey(
+        Product, related_name="reference", default="", on_delete=models.CASCADE
+    )
