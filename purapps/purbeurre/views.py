@@ -1,13 +1,13 @@
 """Purbeurre views module."""
 
 import json
-import re
-from django.http.response import JsonResponse
+from django.http.response import Http404
 from django.shortcuts import render, HttpResponse, redirect
 from purapps.purbeurre.forms import SearchProduct
 from purapps.purbeurre.models import Product, Substitutes
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -90,10 +90,50 @@ def results(request, product_name):
         )
 
 
-def product_details(request):
+def err_404(request, exception=None):
+    """Error 404 view."""
+    return render(request, "pages/404.html")
+
+
+def product_details(request, product_name):
     """Product details."""
-    product = Product.retrieve_substitute()
-    return render(request, "pages/product.html", {"product": product})
+    if request.method == "POST":
+        search_form = SearchProduct(request.POST or None)
+        if search_form.is_valid():
+            search_form = SearchProduct()
+            product_name = request.POST.get("product_name")
+
+            return redirect("results", product_name=product_name)
+
+    search_form = SearchProduct()
+    try:
+        product = Product.objects.get(name=product_name)
+        fat = product.nutriments["fat_100g"]
+        salt = product.nutriments["salt_100g"]
+        sodium = product.nutriments["sodium_100g"]
+        energy = product.nutriments["energy_100g"]
+        energy_kcal = product.nutriments["energy-kcal_100g"]
+        sugars = product.nutriments["sugars_100g"]
+        proteins = product.nutriments["proteins_100g"]
+        carbohydrates = product.nutriments["carbohydrates_100g"]
+    except Product.DoesNotExist:
+        raise Http404("Cette page n'existe pas")
+    return render(
+        request,
+        "pages/product.html",
+        {
+            "product": product,
+            "fat": fat,
+            "salt": salt,
+            "sodium": sodium,
+            "energy": energy,
+            "energy_kcal": energy_kcal,
+            "sugars": sugars,
+            "proteins": proteins,
+            "carbohydrates": carbohydrates,
+            "search_form": search_form,
+        },
+    )
 
 
 def autocomplete(request):
@@ -120,41 +160,48 @@ def ajax(request):
         products = body["products"]
         user_id = body["user_id"]
         origin_product = body["origin_product"]
-        print(products, origin_product)
 
+        origin_product = origin_product.replace("&amp;", "&")
         origin_product = Product.objects.get(name=origin_product)
 
-        for i in products:
+        for item_id in products:
             if Substitutes.objects.filter(
-                product_id=i,
+                product_id=item_id,
                 reference_id=origin_product.id,
                 user_id=int(user_id),
             ).exists():
                 pass
 
             else:
-                t = Substitutes(
-                    product_id=i,
+                substitute = Substitutes(
+                    product_id=item_id,
                     reference_id=origin_product.id,
                     user_id=int(user_id),
                 )
-                t.save()
+                substitute.save()
 
         return render(request, "pages/product.html", {"products": products})
 
 
+@login_required
 def favorites(request):
     """Retrieve favorites."""
-    res = Substitutes.objects.values(
-        "product__name",
-        "product__image",
-        "reference__name",
-        "reference__image",
-        "product__nutriscore__type",
-        "user_id",
-    )
+    if request.method == "POST":
+        search_form = SearchProduct(request.POST or None)
+        if search_form.is_valid():
+            search_form = SearchProduct()
+            product_name = request.POST.get("product_name")
+
+            return redirect("results", product_name=product_name)
+
+    search_form = SearchProduct()
+
+    res = Substitutes.objects.filter(user=request.user)
+
     search_form = SearchProduct()
 
     return render(
-        request, "pages/favorites.html", {"products": res, "search_form": search_form}
+        request,
+        "pages/favorites.html",
+        {"products": res, "search_form": search_form},
     )
