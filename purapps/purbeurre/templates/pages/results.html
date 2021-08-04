@@ -4,25 +4,16 @@
 {% block title %}Substituts -- Pur beurre{% endblock title %}
 
 
-
 {% block results %}
-    <section class="page-section-results bg-secondary" id="about">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-2">
-                    {% if origin_prod_name %}
-                        <span class="nutri_center">{{ origin_nutriscore }}</span>
-                        <div class="pic_container">
-                        <img src="{{ origin_image }}" class="img-fluid rounded mx-auto d-block">
-                        </div>
-                        <div class="p_name">
-                        {{origin_prod_name}}
-                        </div>
-                    {% endif %}
-                </div>
+<section class="page-section bg-secondary" id="about">
+    <div class="container px-4 px-lg-5 bg-primary">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="prod_rep2" style="background: url('{{origin_image}}') repeat-x center; height: 200px;">
+            <mark class="mark_prod">{{origin_prod_name}}</mark>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock results %}
 
 {% block content %}
@@ -30,101 +21,93 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
-
                 {% if not page_no_result and not origin_prod_name %}
                     <h3>Il n'y a pas de produit avec &laquo;{{search_term}}&raquo; dans le nom.</h3>
                 {% endif %}
-
                 {% if no_result %}
                     <h3>Résultats pour la recherche : &laquo;{{search_term}}&raquo;
-
                     {% if page_no_result.has_other_pages %}
                         | Page {{ page_no_result.number }} sur {{ page_no_result.paginator.num_pages }}.</h3>
                     {% else %}
                         </h3>
                     {% endif %}
-
-                <hr class="divider" />  <br>  <br>       
-
-                <ul class="list-inline">
-                {% for i in page_no_result %}
-                    <li class="list-inline-item">
-                        <div class="pic_container">
-                            <img src="{{ i.image }}" class="img-fluid rounded">
-                        </div>
-                        <div class="p_name">
-                            {{i.name|truncatechars:40}} 
-                        </div>
-                        <div class="p_save">
-                            <form>
-                                <input type="checkbox"> sauvegarder
-                            </form>
-                        </div>
-                    </li>
-                    <span class="nutriscore">{{i.nutriscore.type.capitalize}}</span>
-                {% endfor %}
-
-                </ul>
-
+                    <hr class="divider" />  <br>  <br>       
+                    <ul class="list-inline">
+                    {% for product in page_no_result %}
+                        <li class="list-inline-item">
+                            <a href="/product/{{product.name}}"><div class="pic_container">
+                                <img src="{{ product.image }}" class="img-fluid rounded">
+                            </div>
+                            <div class="p_name">
+                                {{product.name|truncatechars:40}} 
+                            </div></a>
+                            <div class="p_save">
+                                <form>
+                                    <input type="checkbox"> sauvegarder
+                                </form>
+                            </div>
+                            
+                        </li>
+                        <span class="nutriscore">{{product.nutriscore.type.capitalize}}</span>
+                    {% endfor %}
+                    </ul>
                     {% if page_no_result.has_previous %}
                         <a  class="float-start btn btn-primary" href="?page={{ page_no_result.previous_page_number }}">page précédente</a>
                     {% endif %}
-
                     {% if page_no_result.has_next %}
                         <a class="float-end btn btn-primary" href="?page={{ page_no_result.next_page_number }}">page suivante</a>
                     {% endif %}
-
-                {% elif substit %} 
-                    <h3>Selection de substituts</h3>
-                    <br><br>
-                {% if page_result.has_other_pages %}
-                    <p>Page {{ page_result.number }} sur {{ page_result.paginator.num_pages }}.</p>
-                    <hr class="divider" /> 
-                {% endif %}
-                
-                {% for i in substit|slice:":1" %}
-                    {% if i.name == origin_prod_name %}
-                        Il n'y a pas de substitut pour {{i.name}}
-                    {% endif %}
-                {% endfor %}
-
-                <ul class="list-inline">
-
-                {% for i in page_result %}
-                    {% if i.name != origin_prod_name %}
-                
-                        <li class="list-inline-item">
-                        <div class="pic_container">
-                            <img src="{{ i.image }}" class="img-fluid rounded">
-                        </div>
-                        <div class="p_name">
-                            {{i.name|truncatechars:40}}
-                        </div>
-                        <div class="p_save">
-                            <input type="checkbox" value="{{i.id}}" id="cbox" onclick="get_substitutes()"> sauvegarder
-                        </div>
-                        </li>
-                        <span class="nutriscore">{{i.nutriscore.type.capitalize}}</span>
-                    {% endif %}
-                {% endfor %}
-                </ul>
+                    {% elif substit %} 
+                        <h3>Vous pouvez remplacer cet aliment par :</h3>
+                        <br><br>
+                        {% if page_result.has_other_pages %}
+                            <p>Page {{ page_result.number }} sur {{ page_result.paginator.num_pages }}.</p>
+                            <hr class="divider" /> 
+                        {% endif %}
+                    {% for product in substit|slice:":1" %}
+                        {% if product.name == origin_prod_name %}
+                            Il n'y a pas de substitut pour {{product.name}}
+                        {% endif %}
+                    {% endfor %}
+                    <ul class="list-inline">
+                    {% for product in page_result %}
+                        {% if product.name != origin_prod_name %}
+                            <li class="list-inline-item">
+                            <a href="/product/{{product.name}}"><div class="pic_container">
+                                <img src="{{ product.image }}" class="img-fluid rounded">
+                            </div>
+                            <div class="p_name">
+                                {{product.name|truncatechars:40}}
+                            </div></a>
+                            {% if user.is_authenticated %}
+                            <div class="p_save">
+                            {% else %}
+                            <div class="p_save transparent">
+                            {% endif %}
+                                <input type="checkbox" value="{{product.id}}" id="cbox" onclick="get_substitutes()"> sauvegarder
+                            </div>
                             
-                {% if page_result.has_previous %}
-                    <a  class="float-start btn btn-primary" href="?page={{ page_result.previous_page_number }}">page précédente</a>
+                            </li>
+                            <span class="nutriscore">{{product.nutriscore.type.capitalize}}</span>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                    {% if page_result.has_previous %}
+                        <a  class="float-start btn btn-primary" href="?page={{ page_result.previous_page_number }}">page précédente</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <button id="save_btn" class="btn btn-success">Sauvegarder dans les favoris</button>
+                    {% else %}
+                        Pour sauvegarder vos produits préférés dans vos favoris
+                        <button class="btn btn-success">S'inscrire</button> et / ou <button class="btn btn-success">Se connecter</button>
+                    {% endif %}
+
+                    {% if page_result.has_next %}
+                        <a class="float-end btn btn-primary" href="?page={{ page_result.next_page_number }}">page suivante</a>
+                    {% endif %}
                 {% endif %}
-
-                <button id="save_btn" class="btn btn-success">Sauvegarder dans les favoris</button>
-
-                {% if page_result.has_next %}
-                    <a class="float-end btn btn-primary" href="?page={{ page_result.next_page_number }}">page suivante</a>
-                {% endif %}
-
-                {% endif %}
-
             </div>
         </div>
     </div>
 </section>
-
 {% endblock %}
-
