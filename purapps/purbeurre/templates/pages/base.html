@@ -47,19 +47,14 @@
 
                     <script src="{% static 'jquery/autocomplete.js' %}"></script>
 
-                    {% if user.is_authenticated %}
-                    {% csrf_token %}
-                    <script src="{% static 'jquery/get_substitutes.js' %}"></script>
-                    {% endif %}
+
 
                     <form method="post" class="d-flex nav-link">
                     {% csrf_token %}
-                    {{ search_form.as_ul }}                    
+                    {{ request.search_form.as_ul }}                    
                     </form>     
-                        {% if not user.is_authenticated %} 
-                          <li class="nav-item align-self-center"><a class="nav-link" href="{% url 'inscript' %}">S'inscrire</a></li>
-                          <li class="nav-item align-self-center"><a class="nav-link" href="{% url 'login' %}">Se connecter</a></li>
-                          {% else %} 
+                        {% if user.is_authenticated %} 
+
                           <li class="nav-item align-self-center"><a class="nav-link" href=" {% url 'profile' %} ">
                           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="30" height="30" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve" style="stroke: black; fill: black; stroke-width: 3;">
                           <g><path fill="none" d="M49.996,44.992c10.487,0,19.018-8.531,19.018-19.018S60.483,6.957,49.996,6.957   c-10.486,0-19.017,8.531-19.017,19.018S39.51,44.992,49.996,44.992z"/>
@@ -67,8 +62,6 @@
                           <path d="M67.506,41.244c-0.409-0.227-0.921-0.131-1.222,0.226c-4.056,4.821-9.991,7.586-16.284,7.586   c-6.311,0-12.245-2.764-16.283-7.584c-0.3-0.359-0.813-0.454-1.222-0.229c-9.294,5.119-15.068,14.856-15.068,25.412v27.366   c0,0.54,0.438,0.978,0.978,0.978h63.187c0.54,0,0.978-0.438,0.978-0.978V66.655C82.572,56.118,76.799,46.381,67.506,41.244z    M80.615,93.043H19.385V66.655c0-9.581,5.103-18.44,13.37-23.308c4.39,4.882,10.629,7.665,17.246,7.665   c6.598,0,12.836-2.784,17.243-7.665c8.268,4.885,13.372,13.743,13.372,23.308V93.043z"/>
                           <path d="M49.996,46.949c11.565,0,20.974-9.409,20.974-20.974S61.562,5,49.996,5s-20.974,9.409-20.974,20.974   S38.431,46.949,49.996,46.949z M49.996,6.957c10.487,0,19.018,8.531,19.018,19.018s-8.531,19.018-19.018,19.018   c-10.486,0-19.017-8.531-19.017-19.018S39.51,6.957,49.996,6.957z"/>
                           </g></svg>
-
-                          
                           
                           </a></li>
                           <li class="nav-item align-self-center"><a class="nav-link" href="{% url 'favorites' %}">
@@ -85,7 +78,13 @@
                           <path d="M21.71,11.29l-3-3a1,1,0,0,0-1.42,1.42L18.59,11H7.5a1,1,0,0,0,0,2H18.59l-1.3,1.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l3-3A1,1,0,0,0,21.71,11.29Z"/></g></svg> 
                           
                           </a></li>
-                          </ul>                    
+                          </ul>
+
+                          {% else %} 
+                          <li class="nav-item align-self-center"><a class="nav-link" href="{% url 'inscript' %}">S'inscrire</a></li>
+                          <li class="nav-item align-self-center"><a class="nav-link" href="{% url 'login' %}">Se connecter</a></li>
+                          </ul>
+
                         {% endif %}
                 </div>
             </div>
