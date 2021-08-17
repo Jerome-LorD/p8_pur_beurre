@@ -63,7 +63,13 @@ class Insert:
                             name=product["product_name_fr"],
                             url=product["url"],
                             brand=product["brands"],
-                            stores=product["stores"],
+                            # stores=product["stores"],
+                            nutriments={
+                                f"{k}": v
+                                for k, v in product["nutriments"].items()
+                                if "100g" in k
+                            },
+                            image=product["image_small_url"],
                             nutriscore_id=last_nut,
                         )
 
@@ -113,14 +119,24 @@ def require_product_name_fr_not_empty(data):
     return True if data.get("product_name_fr") else False
 
 
-def require_stores_not_empty(data):
-    """Verify if stores is not empty."""
-    return True if data.get("stores") else False
+def require_product_image_url_not_empty(data):
+    """Verify if image is not empty."""
+    return True if data.get("image_url") else False
+
+
+def require_brands_not_empty(data):
+    """Verify if brands is not empty."""
+    return True if data.get("brands") else False
 
 
 def require_nutriscore_grade_not_empty(data):
     """Verify if nutriscore_grade is not empty."""
     return True if data.get("nutriscore_grade") else False
+
+
+def require_nutriments_not_empty(data):
+    """Verify if nutriments is not empty."""
+    return True if data.get("nutriments") else False
 
 
 def require_lang_equal_to_fr(data):
@@ -162,8 +178,10 @@ class OffCleaner(Cleaner):
 
     validators = [
         require_product_name_fr_not_empty,
-        require_stores_not_empty,
+        require_product_image_url_not_empty,
+        require_brands_not_empty,
         require_nutriscore_grade_not_empty,
+        require_nutriments_not_empty,
         require_lang_equal_to_fr,
         require_categories_lc_equal_to_fr,
         require_categories_without_lot_of_dashes,

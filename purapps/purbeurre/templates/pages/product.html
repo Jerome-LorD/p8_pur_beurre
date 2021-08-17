@@ -3,10 +3,10 @@
 {% block title %}Produit sauvegardé -- Pur beurre{% endblock title %}
 
 {% block product %}
-<section class="page-section bg-secondary" id="about">
+<section class="page-section bg-moules-frites" id="about">
     <div class="container px-4 px-lg-5 bg-primary">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="prod_rep2" style="background: url('{{product.image}}') repeat-x center; height: 200px;">
+            <div class="prod_rep2" style="background: url('{{product.image}}') no-repeat center; height: 200px; background-color: black; box-shadow: 2px 0px 16px -4px aliceblue;">
             <mark class="mark_prod">{{product.name}}</mark>
             </div>
         </div>
@@ -38,7 +38,12 @@
                         <tr>
                         <th class="bg-rooibos-chocolat">Informations nutritionnelles</th><th class="bg-rooibos-chocolat">pour 100g / 100 ml</th>
                         </tr>
-                        <tr>
+                            {% for key, value in product.nutriments.items %}
+                            {% if key == "fat_100g" or key == "salt_100g" or key == "sodium_100g" or key == "energy_100g" or key == "energy-kcal_100g" or key == "sugars_100g" or key == "proteins_100g" or key == "carbohydrates_100g" %}
+                            <tr><td class="bg-biscuit-trempe">{{key}}</td><td class="bg-biscuit-trempe">{{value}}</td></tr>
+                            {% endif %}
+                            {% endfor %}
+                        {% comment %} <tr>
                         <td class="bg-biscuit-trempe">Énergie (kJ)</td><td class="bg-biscuit-trempe">{{energy}} Kj</td>
                         </tr>
                         <tr>
@@ -58,7 +63,8 @@
                         </tr>
                         <tr>
                         <td class="bg-biscuit-trempe">Sodium</td><td class="bg-biscuit-trempe">{{sodium}} g</td>
-                        </tr>
+                        </tr> {% endcomment %}
+
                         </table>
                     </div>
                     <br>

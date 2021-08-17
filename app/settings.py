@@ -40,7 +40,11 @@ if os.environ.get("ENV") == "PRODUCTION":
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+# Dev mode
+# ALLOWED_HOSTS = ["127.0.0.1"]
+
+# Prod mode
+ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com"]
 
 # Application definition
 
@@ -64,6 +68,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # My Middleware :
+    "app.middleware.SearchMiddleware",
 ]
 
 ROOT_URLCONF = "app.urls"
@@ -122,6 +128,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+    "purapps.purauth.authenticate.EmailAuth",
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

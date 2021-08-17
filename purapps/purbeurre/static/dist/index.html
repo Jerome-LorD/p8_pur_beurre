@@ -34,6 +34,36 @@
                 </div>
             </div>
         </nav>
+
+
+        <header class="results">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold">Du gras, oui, mais de qualité !</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <h2 class="text-white-75 mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
+                    <form method="post">
+
+                    <div class="input-group mb-3">
+                    {% csrf_token %}
+                    {{ search_form }}                    
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="submit">Chercher</button>
+                    </div>
+                    </div>
+                    </form>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </header>  
+
+
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
@@ -160,6 +190,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Call to action-->
         <section class="page-section bg-dark text-white">
             <div class="container px-4 px-lg-5 text-center">
