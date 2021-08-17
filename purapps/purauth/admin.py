@@ -1,14 +1,15 @@
+"""Purauth admin module."""
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as AuthUserAdmin
 from .models import User
-from .forms import UserChangeForm, UserCreationForm
+from .forms import UserCreationForm
 
-admin.site.register(User)  # , UserAdmin)
-# Register your models here.
+admin.site.register(User)
 
 
 class UserAdmin(AuthUserAdmin):
+    """User admin class."""
+
     add_form = UserCreationForm
-    form = UserChangeForm
+
     model = User
-    # list_display = ("")

@@ -4,4 +4,3 @@ pbenv
 .vscode
 .env
 **/node_modules/
-static/

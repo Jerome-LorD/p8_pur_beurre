@@ -7,7 +7,7 @@ class SearchProduct(forms.Form):
 
     product_name = forms.CharField(
         label="",
-        max_length=100,
+        max_length=150,
         widget=forms.TextInput(
             attrs={
                 "class": "form-control me-2",

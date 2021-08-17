@@ -13,7 +13,7 @@ class Command(BaseCommand):
 
     def construct_db(self):
         """Commands to construct the db."""
-        for page in range(1, 2):
+        for page in range(1, 20):
             down_off = Downloader(page)
             extracted = down_off.extract_data()
             cleaner = OffCleaner()

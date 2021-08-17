@@ -14,10 +14,10 @@
                     <ul class="list-inline">
                     {% for item in products %}
                         <li class="list-inline-item">
-                        <a href="/product/{{item.product.name}}"><div class="pic_container">
+                        <a href="{% url 'product' item.product.name %}"><div class="pic_container">
                         <img src="{{ item.product.image }}" class="img-fluid rounded">
                         </div></a>
-                        <div class="p_name"><a class="p_ref" href="/product/{{item.reference.name}}">référence
+                        <div class="p_name"><a class="p_ref" href="{% url 'product' item.reference.name %}">référence
                         <span>
                         substitut de <b>{{item.reference.name|truncatechars:40}}</b>
                         </span></a>                        

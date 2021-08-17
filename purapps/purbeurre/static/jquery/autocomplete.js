@@ -1,7 +1,7 @@
 $(function () {
     $("#products").autocomplete({
         minLength: 3,
-        source: "autocomplete/",
+        source: autocomp_source,
         focus: function (event, ui) {
             $("#products").val(ui.item.name);
             return false;
@@ -9,7 +9,7 @@ $(function () {
         select: function (event, ui) {
             $("#products").val(ui.item.name);
             $("#products-id").val(ui.item.value);
-            $("#products-icon").attr("src", "{% static '/' %}" + ui.item.icon);
+            // $("#products-icon").attr("src", "{% static '/' %}" + ui.item.icon);
             $(this).closest("form").submit();
 
             return false;

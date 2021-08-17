@@ -18,14 +18,11 @@ from django.urls import include, path
 
 
 app_name = "purapps.purbeurre"
+handler404 = "purapps.purbeurre.views.err_404"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("purapps.purbeurre.urls")),
-    path("", include("purapps.purauth.urls")),
-    # path("accounts/", include("django.contrib.auth.urls")),
-    path(
-        "results/<str:product_name>",
-        include(("purapps.purbeurre.urls", "purbeurre"), namespace="purbeurre"),
-    ),
+    path("api/", include("purapps.purbeurre.urls")),
+    # path("", include("purapps.purbeurre.urls")),
+    path("auth/", include("purapps.purauth.urls")),
 ]

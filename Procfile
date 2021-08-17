@@ -1,0 +1,1 @@
+web: gunicorn p8_pur_beurre.wsgi
