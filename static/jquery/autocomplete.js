@@ -1,7 +1,7 @@
 $(function () {
     $("#products").autocomplete({
         minLength: 3,
-        source: "autocomplete/",
+        source: autocomp_source,
         focus: function (event, ui) {
             $("#products").val(ui.item.name);
             return false;
