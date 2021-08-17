@@ -46,9 +46,6 @@ class Product(models.Model):
         return f"{self.id} - {self.name} - {self.brand} - {self.url} - {self.nutriscore}\
  - {self.image} - {self.nutriments}"
 
-    # def get_absolute_url(self):
-    #     return reverse("results", args=[str(self.id)])
-
     @classmethod
     def find_substitute(cls, product_id):
         """Find a substitute."""
@@ -82,59 +79,6 @@ class Product(models.Model):
                     substitute = data
             return substitute
         return data
-
-    # def find_substitute(self):
-    #     """Find a substitute."""
-    #     produc = Product.objects.get(pk=self)
-    #     breakpoint()
-    #     data = Product.objects.filter(id=self).order_by("categories")
-    #     product = data.first()
-
-    #     categories_id = product.categories.values("id").order_by("id")
-
-    #     sorted_categories = (
-    #         Product.objects.filter(categories__in=categories_id)
-    #         .values("categories__id")
-    #         .annotate(tot=Count("id", distinct=True))
-    #         .order_by("tot")
-    #     )
-    # if len(sorted_categories) == 1:
-    #     offset = 0
-    #     category = sorted_categories[offset].get("categories__id")
-    #     substitute = Product.objects.filter(
-    #         categories__id=category, nutriscore__type__lt=product.nutriscore.type
-    #     ).order_by("nutriscore__type")
-    #     breakpoint()
-    # return substitute
-
-    #     if len(sorted_categories) > 1:
-    #         offset = 0
-    #         best_cat = sorted_categories[offset].get("categories__id")
-    #         substitute = Product.objects.filter(
-    #             categories__id=best_cat, nutriscore__type__lt=product.nutriscore.type
-    #         ).order_by("nutriscore__type")
-    #         # breakpoint()
-    #         while not substitute:
-    #             best_cat = sorted_categories[offset].get("categories__id")
-    #             substitute = Product.objects.filter(
-    #                 categories__id=best_cat,
-    #                 nutriscore__type__lt=product.nutriscore.type,
-    #             ).order_by("nutriscore__type")
-    #             # breakpoint()
-
-    #             offset += 1
-    #             if product.nutriscore.type > "b":
-    #                 offset_limit = 3
-    #             offset_limit = 2
-    #             if offset == offset_limit and not substitute:
-    #                 substitute = data
-    #         return substitute
-    #     return data
-
-    # @classmethod
-    # def retrieve_substitute(cls):
-    #     """Retrieve substitute."""
-    #     return Substitutes.objects.values("product__name", "reference__name", "user_id")
 
 
 class Substitutes(models.Model):
