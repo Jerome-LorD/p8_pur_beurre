@@ -101,8 +101,8 @@ DATABASES = {
         "NAME": DB_ORIGIN_BASE_NAME,
         "USER": DB_APP_USER,
         "PASSWORD": DB_ORIGIN_BASE_PASSWD,
-        "HOST": "localhost",
-        "PORT": "",
+        "HOST": "",
+        "PORT": "5432",
         "OPTIONS": {
             "isolation_level": psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
         },
@@ -149,8 +149,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
 # Default primary key field type
