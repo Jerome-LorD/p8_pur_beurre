@@ -22,7 +22,6 @@ handler404 = "purapps.purbeurre.views.err_404"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include("purapps.purbeurre.urls")),
-    # path("", include("purapps.purbeurre.urls")),
+    path("", include("purapps.purbeurre.urls")),
     path("auth/", include("purapps.purauth.urls")),
 ]

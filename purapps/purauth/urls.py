@@ -14,7 +14,7 @@ urlpatterns = [
     path(
         "accounts/logout/",
         auth_views.LogoutView.as_view(
-            template_name="registration/logout.html", next_page="/api/"
+            template_name="registration/logout.html", next_page="/"
         ),
         name="user_logout",
     ),

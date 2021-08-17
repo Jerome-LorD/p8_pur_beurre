@@ -40,10 +40,10 @@ else:
     DEBUG = True
 
 # Dev mode
-# ALLOWED_HOSTS = ["127.0.0.1", "api/"]
+# ALLOWED_HOSTS = ["127.0.0.1"]
 
 # Prod mode
-ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com/api/"]
+ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com"]
 
 # Application definition
 
@@ -148,9 +148,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "purapps/purbeurre/static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = "purapps/purbeurre/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 # Default primary key field type
