@@ -34,7 +34,6 @@ class Product(models.Model):
 
     name = models.CharField(max_length=150, unique=True, default=False, blank=True)
     brand = models.CharField(max_length=150, default=False, blank=True)
-    stores = models.CharField(max_length=150, default=False, blank=True)
     image = models.URLField(max_length=255, default=False, blank=True, null=True)
     nutriments = models.JSONField()
     url = models.CharField(max_length=255, unique=True, default=False, blank=True)
@@ -43,7 +42,7 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         """Return str representation."""
-        return f"{self.id} - {self.name} - {self.brand} - {self.stores} - {self.url}\
+        return f"{self.id} - {self.name} - {self.brand} - {self.url}\
  - {self.nutriscore} - {self.image} - {self.nutriments}"
 
     @classmethod
