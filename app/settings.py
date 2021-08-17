@@ -40,10 +40,10 @@ else:
     DEBUG = True
 
 # Dev mode
-# ALLOWED_HOSTS = ["127.0.0.1"]
+# ALLOWED_HOSTS = ["127.0.0.1", "api/"]
 
 # Prod mode
-ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com"]
+ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com/api/"]
 
 # Application definition
 
