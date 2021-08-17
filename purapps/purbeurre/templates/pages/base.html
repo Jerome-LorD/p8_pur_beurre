@@ -90,12 +90,14 @@
             </div>
         </nav>    
     {% endblock nav %}
-                    <script type="text/javascript">
-                        const ref_product_id = '{{product.id}}';
-                        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-                        const autocomp_source = "{% url 'autocomplete' %}"
-                        const ajax_url = "{% url 'save_substitutes' %}"
-                    </script>
+    
+    <script type="text/javascript">
+        const ref_product_id = '{{product.id}}';
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const autocomp_source = "{% url 'autocomplete' %}"
+        const ajax_url = "{% url 'save_substitutes' %}"
+    </script>
+
     {% block notfound %}<!-- 404 -->{% endblock notfound %}    
     {% block results %}<!-- Results -->{% endblock results %}
     {% block masthead %}<!-- Masthead -->{% endblock masthead %}

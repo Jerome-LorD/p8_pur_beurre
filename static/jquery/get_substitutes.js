@@ -10,8 +10,8 @@ var get_substitutes = function () {
             dataType: 'json',
             type: 'POST',
             url: ajax_url,
-            data: JSON.stringify({ "products": selected_products, "user_id": '{{user.id}}', "origin_product": '{{origin_prod_name}}' }),
-            csrfmiddlewaretoken: '{{ csrf_token }}',
+            data: JSON.stringify({ "products": selected_products, "ref_product_id": ref_product_id }),
+            csrfmiddlewaretoken: csrftoken,
 
         });
         e.stopImmediatePropagation();

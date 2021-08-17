@@ -27,6 +27,9 @@
   --bs-primary: #c45525;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
+  --bs-rooibos-chocolat : #c45525;
+  --bs-moules-frite: #345a61;
+  --bs-biscuit-trempe: #e8a75d;
   --bs-results: yellow;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
@@ -7444,6 +7447,18 @@ textarea.form-control-lg {
   background-image: var(--bs-gradient) !important;
 }
 
+.bg-rooibos-chocolat {
+  background-color: var(--bs-rooibos-chocolat);
+}
+
+.bg-moules-frites {
+  background-color: var(--bs-moules-frite);
+}
+
+.bg-biscuit-trempe {
+  background-color: var(--bs-biscuit-trempe);
+}
+
 .user-select-all {
   -webkit-user-select: all !important;
      -moz-user-select: all !important;
@@ -10940,6 +10955,197 @@ a.results {
   top: 11px;
   text-align: center;
 }
+
+
+a.p_ref {
+  position:relative;
+  color:#000;
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 2px;
+  text-decoration: none;
+  font-size: .8em;
+}
+
+a.p_ref:hover span{
+  display:block;
+  position:absolute;
+  left:-1px; 
+  width:140px; 
+  padding : 0px 5px 0px 5px;
+  background-color:#D5D5D5; 
+  color:#000;
+  border-radius: 5px;
+  }
+
+  .p_name a.p_ref span {
+  line-height: 0px;
+}
+
+.p_name a.p_ref:hover span {
+    line-height: 1.3em;
+    background-color: #bfbfbf;
+    width: 140px;
+}
+
+a.p_ref span {
+  display: none;
+} 
+
+.transparent {
+  /* opacity: 0; */
+  visibility: hidden;
+}
+
+.btn_fiche {
+  margin-top: 35%;
+}
+
+.form-group {
+  margin: 10px 10px;
+}
+
+.errors {
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  color: red;
+  border-radius: 10px;
+  text-align: left;
+  padding: 5px;
+}
+
+.prod_rep2 {
+  text-align: center;
+  display: grid;
+  align-content: center;
+  position: absolute;
+  background-color: #c45525;
+}
+
+.mark_prod {
+  background-color: #979797;
+  font-size: 1em;
+  font-weight: lighter;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.nutri_score {
+  background-color: white;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 1px 0px 7px 1px aliceblue;
+  width: 130px;
+  height: 85px;
+}
+
+.caption_nutriscore {
+  color: #6c757d;
+  text-align: left;
+  caption-side: top;
+  width: 100%;
+  font-size: .7em;
+}
+
+.nutri {
+  background-color: white;
+  border-radius: 10px;
+  margin-top: -15px;
+}
+
+.nut_a::before {
+  content : "\0041";
+  color:white;
+  font-size: .7em;
+  background-color: #038141;
+  border-radius: 5px;
+  padding: 1px 3px 5px 3px;
+    }
+
+.nut_b::before {
+  content : "\0042";
+  color:white;
+  font-size: .7em;
+  background-color: #85bb2f;
+  border-radius: 5px;
+  padding: 1px 3px 5px 3px;
+    }
+
+.nut_c::before {
+  content : "\0043";
+  color:white;
+  font-size: .7em;
+  background-color: #fecb02;
+  border-radius: 5px;
+  padding: 1px 3px 5px 3px;
+    }
+
+.nut_d::before {
+  content : "\0044";
+  color:white;
+  font-size: .7em;
+  background-color: #ee8100;
+  border-radius: 5px;
+  padding: 1px 3px 5px 3px;
+    }
+
+.nut_e::before {
+  content : "\0045";
+  color:white;
+  font-size: .7em;
+  background-color: #e63e11;
+  border-radius: 5px;
+  padding: 1px 3px 5px 3px;
+    }
+
+.nutri_A::before {
+  content : "\0041";
+  font-size: 1.2em;
+  color:white;
+  background-color: #038141;
+  border-radius: 5px;
+  padding: 5px 3px 5px 3px;
+    }       
+
+.nutri_B::before {
+  content : "\0042";
+  font-size: 1.2em;
+  color:white;
+  background-color: #85bb2f;
+  border-radius: 5px;
+  padding: 5px 3px 5px 3px;
+    }
+
+.nutri_C::before {
+  content : "\0043";
+  font-size: 1.2em;
+  color:white;
+  background-color: #fecb02;
+  border-radius: 5px;
+  padding: 5px 3px 5px 3px;
+    }
+
+.nutri_D::before {
+  content : "\0044";
+  font-size: 1.2em;
+  color:white;
+  background-color: #ee8100;
+  border-radius: 5px;
+  padding: 5px 3px 5px 3px;
+    }
+
+.nutri_E::before {
+  content : "\0045";
+  font-size: 1.2em;
+  color:white;
+  background-color: #e63e11;
+  border-radius: 5px;
+  padding: 5px 3px 5px 3px;
+    }   
+
+
 
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75) !important;
