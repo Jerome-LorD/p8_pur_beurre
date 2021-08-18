@@ -92,7 +92,7 @@ def autocomplete(request):
         product = request.GET.get("term", "")
         products = Product.objects.filter(name__icontains="%s" % product).order_by(
             "id"
-        )[:7]
+        )[:10]
 
     return JsonResponse([{"name": item.name} for item in products], safe=False)
 

@@ -63,7 +63,6 @@ class Insert:
                             name=product["product_name_fr"],
                             url=product["url"],
                             brand=product["brands"],
-                            # stores=product["stores"],
                             nutriments={
                                 f"{k}": v
                                 for k, v in product["nutriments"].items()

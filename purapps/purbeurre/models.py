@@ -32,8 +32,8 @@ class Category(models.Model):
 class Product(models.Model):
     """Create product table."""
 
-    name = models.CharField(max_length=150, unique=True, default=False, blank=True)
-    brand = models.CharField(max_length=150, default=False, blank=True)
+    name = models.CharField(max_length=250, unique=True, default=False, blank=True)
+    brand = models.CharField(max_length=180, default=False, blank=True)
     image = models.URLField(max_length=255, default=False, blank=True, null=True)
     nutriments = models.JSONField()
     url = models.CharField(max_length=255, unique=True, default=False, blank=True)
