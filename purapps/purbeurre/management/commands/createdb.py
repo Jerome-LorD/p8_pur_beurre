@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from purapps.purbeurre.utils import Downloader, OffCleaner, Insert
 from django.core import management
 
-# from django.core.management.commands import flush, sqlc
+# from django.core.management.commands import flush
 
 from purapps.purbeurre.models import Nutriscore
 
@@ -33,7 +33,7 @@ class Command(BaseCommand):
             print("The db will be emptied and updated")
             # management.call_command("flush", verbosity=0, interactive=False)
             management.call_command(
-                "migrate purbeurre zero", verbosity=0, interactive=False
+                "migrate", verbosity=0, interactive=False, app_label="purbeurre"
             )
             self.construct_db()
         else:
