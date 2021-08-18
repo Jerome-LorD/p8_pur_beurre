@@ -28,7 +28,7 @@ class Command(BaseCommand):
 
         if Nutriscore.objects.filter(type="e").exists():
             print("The db will be emptied and updated")
-            management.call_command("flush", verbosity=0, interactive=False)
+            management.call_command("flush", verbosity=0, interactive=True)
             self.construct_db()
         else:
             print("The db is empty. Wait a few moments..")
