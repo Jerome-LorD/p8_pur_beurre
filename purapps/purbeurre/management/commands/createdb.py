@@ -1,7 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
 from purapps.purbeurre.utils import Downloader, OffCleaner, Insert
 from django.core import management
-from django.core.management.commands import flush, sqlc
+
+# from django.core.management.commands import flush, sqlc
 
 from purapps.purbeurre.models import Nutriscore
 
