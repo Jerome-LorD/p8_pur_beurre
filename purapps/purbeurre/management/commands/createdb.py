@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from purapps.purbeurre.utils import Downloader, OffCleaner, Insert
 from django.core import management
-from django.core.management.commands import flush
+from django.core.management.commands import flush, sqlc
 
 from purapps.purbeurre.models import Nutriscore
 
@@ -24,11 +24,16 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         """Handle the database creation."""
         # ./manage.py sqlcreate | psql -U postgres -h localhost -W
-        management.call_command("migrate", verbosity=0, interactive=False)
+        # management.call_command(
+        #     "migrate purbeurre zero", verbosity=0, interactive=False
+        # )
 
         if Nutriscore.objects.filter(type="e").exists():
             print("The db will be emptied and updated")
-            management.call_command("flush", verbosity=0, interactive=True)
+            # management.call_command("flush", verbosity=0, interactive=False)
+            management.call_command(
+                "migrate purbeurre zero", verbosity=0, interactive=False
+            )
             self.construct_db()
         else:
             print("The db is empty. Wait a few moments..")
