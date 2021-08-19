@@ -32,7 +32,7 @@ class Category(models.Model):
 class Product(models.Model):
     """Create product table."""
 
-    name = models.CharField(max_length=250, unique=True, default=False, blank=True)
+    name = models.CharField(max_length=240, unique=True, default=False, blank=True)
     brand = models.CharField(max_length=180, default=False, blank=True)
     image = models.URLField(max_length=255, default=False, blank=True, null=True)
     nutriments = models.JSONField()
@@ -45,11 +45,10 @@ class Product(models.Model):
         return f"{self.id} - {self.name} - {self.brand} - {self.url}\
  - {self.nutriscore} - {self.image} - {self.nutriments}"
 
-    @classmethod
-    def find_substitute(cls, product_id):
+    def find_substitute(self):
         """Find a substitute."""
-        data = Product.objects.filter(id=product_id).order_by("categories")
-        categories_id = data[0].categories.values("id").order_by("id")
+        categories_id = self.categories.values("id").order_by("id")
+
         sorted_categories = (
             Product.objects.filter(categories__in=categories_id)
             .values("categories__id")
@@ -60,29 +59,24 @@ class Product(models.Model):
             offset = 0
             best_cat = sorted_categories[offset].get("categories__id")
             substitute = Product.objects.filter(
-                categories__id=best_cat, nutriscore__type__lt=data[0].nutriscore.type
+                categories__id=best_cat, nutriscore__type__lt=self.nutriscore.type
             )
 
             while not substitute:
                 best_cat = sorted_categories[offset].get("categories__id")
                 substitute = Product.objects.filter(
                     categories__id=best_cat,
-                    nutriscore__type__lt=data[0].nutriscore.type,
+                    nutriscore__type__lt=self.nutriscore.type,
                 )
 
                 offset += 1
-                if data[0].nutriscore.type > "b":
+                if self.nutriscore.type > "b":
                     offset_limit = 3
                 offset_limit = 2
                 if offset == offset_limit and not substitute:
-                    substitute = data
+                    substitute = self
             return substitute
-        return data
-
-    @classmethod
-    def retrieve_substitute(cls):
-        """Retrieve substitute."""
-        return Substitutes.objects.values("product__name", "reference__name", "user_id")
+        return self
 
 
 class Substitutes(models.Model):
