@@ -19,7 +19,7 @@ def results(request, product_name):
     try:
         result = Product.objects.filter(name__iregex=r"^%s$" % product_name)
         product = result.first()
-        substit = Product.find_substitute(product.id).order_by("nutriscore__type")
+        substit = product.find_substitute()
 
         if product.id != substit[0].id:
             page = request.GET.get("page", 1)
