@@ -154,6 +154,16 @@ def require_categories_without_lot_of_dashes(data):
     return False if item else True
 
 
+def require_len_categories_greater_than_one(data):
+    """Verify if there is more than one category."""
+    return True if len(data.get("categories").split(",")) > 1 else False
+
+
+def require_valid_product_name(data):
+    """Verify if the product is different from 'Chargement...'."""
+    return True if data.get("product_name_fr") != "Chargement..." else False
+
+
 def normalize_product_without_cariage_return(data):
     """Delete cariage return."""
     if "\n" in data.get("product_name_fr"):
@@ -172,6 +182,15 @@ def normalize_categories_without_suffix_and_bad_datas(data):
         return data
 
 
+def normalize_product_to_replace_slash_by_dash_in_name(data):
+    if data:
+        if "/" in data.get("product_name_fr"):
+            return data.update(
+                product_name_fr=data.get("product_name_fr").replace("/", "-")
+            )
+        return data
+
+
 class OffCleaner(Cleaner):
     """State."""
 
@@ -184,9 +203,12 @@ class OffCleaner(Cleaner):
         require_lang_equal_to_fr,
         require_categories_lc_equal_to_fr,
         require_categories_without_lot_of_dashes,
+        require_len_categories_greater_than_one,
+        require_valid_product_name,
     ]
 
     normalizers = [
         normalize_product_without_cariage_return,
         normalize_categories_without_suffix_and_bad_datas,
+        normalize_product_to_replace_slash_by_dash_in_name,
     ]
