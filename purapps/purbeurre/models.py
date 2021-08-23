@@ -47,8 +47,7 @@ class Product(models.Model):
 
     def find_substitute(self):
         """Find a substitute."""
-        categories_id = self.categories.values("id").order_by("id")
-
+        categories_id = self.categories.values("id")
         sorted_categories = (
             Product.objects.filter(categories__in=categories_id)
             .values("categories__id")
@@ -57,26 +56,22 @@ class Product(models.Model):
         )
         if len(sorted_categories) > 1:
             offset = 0
-            best_cat = sorted_categories[offset].get("categories__id")
-            substitute = Product.objects.filter(
-                categories__id=best_cat, nutriscore__type__lt=self.nutriscore.type
-            )
+            substitute = None
 
             while not substitute:
                 best_cat = sorted_categories[offset].get("categories__id")
                 substitute = Product.objects.filter(
                     categories__id=best_cat,
                     nutriscore__type__lt=self.nutriscore.type,
-                )
+                ).order_by("nutriscore__type")
 
                 offset += 1
                 if self.nutriscore.type > "b":
                     offset_limit = 3
                 offset_limit = 2
                 if offset == offset_limit and not substitute:
-                    substitute = self
+                    return None
             return substitute
-        return self
 
 
 class Substitutes(models.Model):
