@@ -18,12 +18,15 @@ def results(request, product_name):
     """Results view from search product form."""
     try:
         result = Product.objects.filter(name__iregex=r"^%s$" % product_name)
+    except Product.DoesNotExist:
+        raise Http404("Cette page n'existe pas")
+
+    page = request.GET.get("page", 1)
+    if result.first():
         product = result.first()
         substit = product.find_substitute()
-
-        if product.id != substit[0].id:
-            page = request.GET.get("page", 1)
-            paginator = Paginator(substit, 8)
+        if substit is not None:
+            paginator = Paginator(substit, 16)
             try:
                 page_result = paginator.page(page)
             except PageNotAnInteger:
@@ -42,33 +45,48 @@ def results(request, product_name):
             )
 
         else:
-            no_result = Product.objects.filter(name__icontains="%s" % product_name)
-            page_no_res = request.GET.get("page", 1)
-            paginator = Paginator(no_result, 8)
-            try:
-                page_no_result = paginator.page(page_no_res)
-            except PageNotAnInteger:
-                page_no_result = paginator.page(1)
-            except EmptyPage:
-                page_no_result = paginator.page(paginator.num_pages)
+            no_result = "Il n'y a pas de substitut pour ce produit."
             return render(
                 request,
                 "pages/results.html",
                 {
                     "product": product,
-                    "search_term": product_name,
-                    "page_no_result": page_no_result,
                     "no_result": no_result,
                 },
             )
 
-    except Product.DoesNotExist:
-        raise Http404("Cette page n'existe pas")
+    elif not result.first():
+
+        general_research = Product.objects.filter(
+            name__icontains="%s" % product_name
+        ).order_by("nutriscore__type")
+
+        gal_search = general_research.all()
+        paginator = Paginator(gal_search, 16)
+
+        try:
+            page_no_result = paginator.page(page)
+        except PageNotAnInteger:
+            page_no_result = paginator.page(1)
+        except EmptyPage:
+            page_no_result = paginator.page(paginator.num_pages)
+
+        return render(
+            request,
+            "pages/results.html",
+            {
+                "gal_search": gal_search,
+                "search_term": product_name,
+                "page_no_result": page_no_result,
+            },
+        )
+
+    return render(request, "pages/results.html", {"search_term": product_name})
 
 
-def err_404(request, exception=None):
+def error_404(request, exception):
     """Error 404 view."""
-    return render(request, "pages/404.html")
+    return render(request, "pages/404.html", status=404)
 
 
 def product_details(request, product_name):
