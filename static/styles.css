@@ -10896,10 +10896,12 @@ a.results {
   width: 150px;
   height: 200px;
   background-color: #c45525;
-  /* margin: 30px 0 0 0; */
   border-top: 1px solid bisque;
   border-left: 1px solid bisque;
   border-right: 1px solid bisque;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 
 .p_name {
@@ -11145,7 +11147,13 @@ a.p_ref span {
   padding: 5px 3px 5px 3px;
     }   
 
+.flex_perso {
+  display: flex;
+    }
 
+.inline-flex_perso {
+  display: inline-flex;
+    }
 
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75) !important;
@@ -11224,7 +11232,7 @@ hr.divider-light {
     color: #212529;
   }
   #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #c45525;
+    color: #fff;
   }
   #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
     color: #212529;
