@@ -37,6 +37,8 @@
                      <h3>Résultats pour la recherche : &laquo;{{search_term}}&raquo;
                      {% if page_no_result.has_other_pages %}
                         | Page {{ page_no_result.number }} sur {{ page_no_result.paginator.num_pages }}.</h3> 
+                    {% else %}
+                    </h3>
                     {% endif %}          
                       <hr class="divider" />  <br>  <br> 
                      <ul class="list-inline">                      
