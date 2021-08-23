@@ -1,92 +1,6 @@
 """Tests purbeurre models module."""
-from django.contrib.auth import get_user_model
-from purapps.purbeurre.models import Category, Product, Nutriscore, Substitutes
+from purapps.purbeurre.models import Category, Product, Nutriscore
 from django.test import TestCase
-
-
-# class ProductTestCase(TestCase):
-#     """ProductTestCase class."""
-
-#     def setUp(self):
-#         """Make Setup."""
-#         Product.objects.create(
-#             name="café",
-#             brand="bla",
-#             stores="bli",
-#             image="blo",
-#             nutriments={"tst": 123},
-#             url="http://chocolate.com",
-#             nutriscore_id=self.nutriscore.id,
-#         )
-#         Product.objects.create(
-#             name="chocolat",
-#             brand="bla",
-#             stores="bli",
-#             image="blo",
-#             nutriments={"tst": 123},
-#             url="http://coffee.com",
-#             nutriscore_id=self.nutriscore.id,
-#         )
-
-#         print(self.nutriscore.id)
-
-#     @classmethod
-#     def setUpTestData(cls):
-#         """SetUp fk."""
-#         cls.nutriscore = Nutriscore.objects.create(type="a")
-
-#     def test_create_product(self):
-#         """test created products."""
-#         coffee = Product.objects.get(name="café")
-#         chocolate = Product.objects.get(name="chocolat")
-#         self.assertEqual(coffee.name, "café")
-#         self.assertEqual(chocolate.name, "chocolat")
-
-
-# class CategoryTestCase(TestCase):
-#     """CategoryTestCase class."""
-
-#     def setUp(self):
-#         """Make Setup."""
-#         Category.objects.create(name="chocolat")
-
-#     def test_create_category(self):
-#         """Test created categories."""
-#         cat_chocolate = Category.objects.get(name="chocolat")
-#         self.assertEqual(cat_chocolate.name, "chocolat")
-
-
-# class NutriscoreTestCase(TestCase):
-#     """NutriscoreTestCase class."""
-
-#     def setUp(self):
-#         """Make Setup."""
-#         Nutriscore.objects.create(type="a")
-
-#     def test_create_Nutriscore(self):
-#         """Test created nutriscore."""
-#         nutriscore = Nutriscore.objects.get(pk=1)
-#         self.assertEqual(nutriscore.type, "a")
-
-
-# class SubstitutesTestCase(TestCase):
-#     """SubstitutesTestCase class."""
-
-#     def setUp(self):
-#         """Make Setup."""
-#         User = get_user_model()
-#         self.user = User.objects.create(username="machin", password="poufpouf")
-
-#     @classmethod
-#     def setUpTestData(cls):
-#         """Set Up fk."""
-#         cls.product = Product.objects.get(name="chocolat")
-#         cls.reference = Product.objects.get(name="café")
-
-#     def test_create_user(self):
-#         """Test created user."""
-#         user = Substitutes.objects.get(user_id=1)
-#         self.assertEqual(user.id, 1, self.product.id, self.reference.id)
 
 
 class FindSubstitutesTestCase(TestCase):
@@ -94,63 +8,95 @@ class FindSubstitutesTestCase(TestCase):
 
     def setUp(self):
         """Make Setup."""
-        nutriscore_type_B = Nutriscore.objects.create(type="b")
-        nutriscore_type_E = Nutriscore.objects.create(type="e")
+        data = {
+            "products": [
+                {
+                    "product_name_fr": "Chocolat bio",
+                    "brands": "Cote d'Or",
+                    "image_small_url": "http://www.chocolat-bio",
+                    "nutriments": {"bli_100g": "bli"},
+                    "url": "http A",
+                    "nutriscore_grade": "d",
+                    "categories": "Chocolat, Tablette de chocolat, Tablette de chocolat noir",
+                },
+                {
+                    "product_name_fr": "Chocolat noir sans sucres",
+                    "brands": "Gerblé",
+                    "image_small_url": "http image B",
+                    "nutriments": {"blo_100g": "blo"},
+                    "url": "http B",
+                    "nutriscore_grade": "c",
+                    "categories": (
+                        "Chocolat, Tablette de chocolat, Tablette de chocolat noir,\
+                             Tablette de chocolat noir sans suvres"
+                    ),
+                },
+                {
+                    "product_name_fr": "Milka choco Moooo",
+                    "brands": "Milka",
+                    "image_small_url": "http image C",
+                    "nutriments": {"blu_100g": "blu"},
+                    "url": "http C",
+                    "nutriscore_grade": "e",
+                    "categories": (
+                        "Biscuit, Biscuit au chocolat, Biscuit au chocolat\
+                         au lait"
+                    ),
+                },
+            ]
+        }
 
-        Category.objects.create(name="Cat A")
-        category_a = Category.objects.filter(name="Cat A").values("id")[0]
+        for product in data["products"]:
 
-        self.prod_a = Product.objects.create(
-            name="produit A",
-            brand="marque A",
-            image="http image A",
-            nutriments={"bla": "bla"},
-            url="http A",
-            nutriscore=nutriscore_type_E,
-        )
-        self.prod_b = Product.objects.create(
-            name="produit B",
-            brand="marque B",
-            image="http image B",
-            nutriments={"bla": "bla"},
-            url="http B",
-            nutriscore=nutriscore_type_B,
-        )
-        self.prod_c = Product.objects.create(
-            name="produit C",
-            brand="marque B",
-            image="http image C",
-            nutriments={"bla": "bla"},
-            url="http C",
-            nutriscore=nutriscore_type_E,
-        )
-        self.prod_d = Product.objects.create(
-            name="produit D",
-            brand="marque B",
-            image="http image D",
-            nutriments={"bla": "bla"},
-            url="http D",
-            nutriscore=nutriscore_type_E,
-        )
-        self.prod_e = Product.objects.create(
-            name="produit E",
-            brand="marque B",
-            image="http image E",
-            nutriments={"bla": "bla"},
-            url="http E",
-            nutriscore=nutriscore_type_E,
-        )
+            try:
+                Nutriscore.objects.get(type=product["nutriscore_grade"])
+            except Nutriscore.DoesNotExist:
+                Nutriscore.objects.create(type=product["nutriscore_grade"])
 
-        lst = ["produit A", "produit B", "produit C", "produit D", "produit E"]
-        for i in lst:
+            try:
+                Product.objects.get(name=product["product_name_fr"])
+            except Product.DoesNotExist:
 
-            self.prod = Product.objects.get(name=i)
-            self.prod.categories.add(category_a.get("id"))
+                last_nut = Nutriscore.objects.filter(
+                    type=product["nutriscore_grade"]
+                ).values("id")
 
-        self.product = Product.objects.get(pk=self.prod_d.id)
+                Product.objects.create(
+                    name=product["product_name_fr"],
+                    url=product["url"],
+                    brand=product["brands"],
+                    nutriments={
+                        f"{k}": v
+                        for k, v in product["nutriments"].items()
+                        if "100g" in k
+                    },
+                    image=product["image_small_url"],
+                    nutriscore_id=last_nut,
+                )
+
+                for category in product["categories"].split(","):
+                    categorie = category.strip()
+
+                    try:
+                        Category.objects.get(name=categorie)
+                    except Category.DoesNotExist:
+
+                        Category.objects.create(name=categorie)
+
+                    prod = Product.objects.get(name=product["product_name_fr"])
+
+                    category = Category.objects.filter(name=categorie).values("id")[0]
+
+                    prod.categories.add(category.get("id"))
+
+                    result = Product.objects.filter(
+                        name__iregex=r"^%s$" % "Chocolat bio"
+                    )
+                    self.product = result.first()
 
     def test_find_substitute(self):
         """Test find substitutes."""
-        substit = Product.find_substitute(self.product.id)
-        substit = substit.first()
-        self.assertEqual(substit.name, "produit B")
+        substit = self.product.find_substitute()
+        if substit is not None:
+            substit = substit.first()
+            self.assertEqual(substit.name, "Chocolat noir sans sucres")
