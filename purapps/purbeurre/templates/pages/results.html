@@ -52,7 +52,7 @@
                                 {{product.name|truncatechars:40}} 
                             </div>
                             </a>
-                            {% if user.is_authenticated %} 
+                            {% comment %} {% if user.is_authenticated %} 
                             <div class="p_save">
                                 <form>
                                     <input type="checkbox" value="{{product.id}}" id="cbox" onclick="get_substitutes()"> sauvegarder
@@ -62,9 +62,9 @@
                             {% csrf_token %}
                             <script src="{% static 'jquery/get_substitutes.js' %}"></script>
 
-                            {% else %}
+                            {% else %} {% endcomment %}
                             <div class="p_save transparent">sauvegarder</div>
-                            {% endif %}
+                            {% comment %} {% endif %} {% endcomment %}
 
                         </li>
                         <span class="nutriscore">{{product.nutriscore.type.capitalize}}</span>
