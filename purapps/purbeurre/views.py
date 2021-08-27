@@ -125,20 +125,10 @@ def save_substitutes(request):
         ref_product = Product.objects.get(pk=ref_product_id)
 
         for item_id in products:
-            if Substitutes.objects.filter(
-                product_id=item_id,
-                reference_id=ref_product.id,
-                user_id=request.user.id,
-            ).exists():
-                pass
 
-            else:
-                substitute = Substitutes(
-                    product_id=item_id,
-                    reference_id=ref_product.id,
-                    user_id=request.user.id,
-                )
-                substitute.save()
+            Substitutes.objects.get_or_create(
+                product_id=item_id, reference_id=ref_product.id, user_id=request.user.id
+            )
 
     return render(request, "pages/results.html", {"products": products})
 
