@@ -82,9 +82,11 @@ class Insert:
 
                             prod = Product.objects.get(name=product["product_name_fr"])
 
-                            category = Category.objects.filter(name=categorie).values(
-                                "id"
-                            )[0]
+                            category = (
+                                Category.objects.filter(name=categorie)
+                                .values("id")
+                                .first()
+                            )
 
                             prod.categories.add(category.get("id"))
 
