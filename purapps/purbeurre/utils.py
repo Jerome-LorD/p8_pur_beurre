@@ -185,6 +185,7 @@ def normalize_categories_without_suffix_and_bad_datas(data):
 
 
 def normalize_product_to_replace_slash_by_dash_in_name(data):
+    """Replace slash by dash in product_name_fr."""
     if data:
         if "/" in data.get("product_name_fr"):
             return data.update(
