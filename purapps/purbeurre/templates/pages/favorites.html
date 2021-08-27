@@ -2,14 +2,26 @@
 {% load static %}
 {% block title %}Mes favoris -- Pur beurre{% endblock title %}
 
+{% block results %}
+<section class="page-section bg-moules-frites">
+    <div class="container px-4 px-lg-5 bg-primary">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="prod_rep2" style="background-color: black; height: 200px; color: white;">
+                <h3>Mes favoris</h3>
+            </div>
+
+
+        </div>
+      
+    </div>
+</section>
+{% endblock %}
 
 {% block content %}
 <section class="page-section bg-moules-frites min_height">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
-                <h3>Mes favoris</h3>
-                <hr class="divider" /><br><br>    
                 {% if user.is_authenticated %}
                     <ul class="list-inline">
                     {% for item in products %}
