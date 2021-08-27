@@ -18,7 +18,7 @@ from django.urls import include, path
 
 
 app_name = "purapps.purbeurre"
-handler404 = "purapps.purbeurre.views.err_404"
+handler404 = "purapps.purbeurre.views.error_404"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
