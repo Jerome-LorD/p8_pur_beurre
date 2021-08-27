@@ -1,8 +1,5 @@
 """Urls app module."""
-import debug_toolbar
-
 from django.urls import path, re_path
-
 
 from . import views
 
