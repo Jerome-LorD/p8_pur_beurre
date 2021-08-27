@@ -52,19 +52,8 @@
                                 {{product.name|truncatechars:40}} 
                             </div>
                             </a>
-                            {% comment %} {% if user.is_authenticated %} 
-                            <div class="p_save">
-                                <form>
-                                    <input type="checkbox" value="{{product.id}}" id="cbox" onclick="get_substitutes()"> sauvegarder
-                                </form>
-                            </div>
 
-                            {% csrf_token %}
-                            <script src="{% static 'jquery/get_substitutes.js' %}"></script>
-
-                            {% else %} {% endcomment %}
                             <div class="p_save transparent">sauvegarder</div>
-                            {% comment %} {% endif %} {% endcomment %}
 
                         </li>
                         <span class="nutriscore">{{product.nutriscore.type.capitalize}}</span>
