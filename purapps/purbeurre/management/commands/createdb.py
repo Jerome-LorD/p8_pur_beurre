@@ -1,9 +1,9 @@
-from django.core.management.base import BaseCommand, CommandError
-from purapps.purbeurre.utils import Downloader, OffCleaner, Insert
+"""Create database module."""
+from django.core.management.base import BaseCommand
 from django.core import management
+
+from purapps.purbeurre.utils import Downloader, OffCleaner, Insert
 from purapps.purbeurre.models import Product
-
-
 from purapps.purbeurre.models import Nutriscore
 
 
@@ -24,7 +24,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         """Handle the database creation."""
-        # ./manage.py sqlcreate | psql -U postgres -h localhost -W
         management.call_command("migrate", verbosity=0, interactive=False)
 
         if Nutriscore.objects.filter(type="e").exists():
