@@ -24,7 +24,7 @@ class FillDbTestCase(TestCase):
                 "brands": "Cote d'Or",
                 "image_small_url": "http://www.chocolat-bio",
                 "nutriments": {"bli_100g": "bli"},
-                "url": "http A",
+                "url": "http://urltest.chocolat-bio",
                 "nutriscore_grade": "d",
                 "categories": (
                     "Chocolat, Tablette de chocolat,\
@@ -176,9 +176,21 @@ class ProductDetailsTestCase(FillDbTestCase):
         response = self.client.get("/product/Chocolat bio/")
         self.assertEqual(response.status_code, 200)
 
-    def test_product_details(self):
-        """Test product."""
+    def test_product_details_name(self):
+        """Test product name."""
         self.assertEqual(self.product.name, "Chocolat bio")
+
+    def test_product_details_image(self):
+        """Test product image."""
+        self.assertEqual(self.product.image, "http://www.chocolat-bio")
+
+    def test_product_details_nutriments(self):
+        """Test product nutriments."""
+        self.assertEqual(self.product.nutriments, {"bli_100g": "bli"})
+
+    def test_product_details_url(self):
+        """Test product url."""
+        self.assertEqual(self.product.url, "http://urltest.chocolat-bio")
 
 
 class IndexTestCase(TestCase):
