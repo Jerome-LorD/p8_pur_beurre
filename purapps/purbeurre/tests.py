@@ -3,11 +3,10 @@
 
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
-from django.db.models.expressions import Exists
 from django.test import Client
-from django.test import TestCase, RequestFactory
-from django.urls import resolve, reverse
-from purapps.purbeurre.views import favorites, product_details, index
+from django.test import TestCase
+from django.urls import reverse
+
 from purapps.purbeurre.models import Category, Product, Nutriscore, Substitutes
 
 
