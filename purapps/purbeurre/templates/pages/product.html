@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Produit sauvegardé -- Pur beurre{% endblock title %}
+{% block title %}Information détaillée -- Pur beurre{% endblock title %}
 
 {% block product %}
-<section class="page-section bg-moules-frites" id="about">
+<section class="page-section bg-moules-frites">
     <div class="container px-4 px-lg-5 bg-primary">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="prod_rep2" style="background: url('{{product.image}}') no-repeat center; height: 200px; background-color: black; box-shadow: 2px 0px 16px -4px aliceblue;">
@@ -15,7 +15,7 @@
 {% endblock product %}
 
 {% block content %}
-<section class="page-section bg-moules-frites min_height" id="about">
+<section class="page-section bg-moules-frites min_height">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 text-center">
@@ -43,28 +43,6 @@
                             <tr><td class="bg-biscuit-trempe">{{key}}</td><td class="bg-biscuit-trempe">{{value}}</td></tr>
                             {% endif %}
                             {% endfor %}
-                        {% comment %} <tr>
-                        <td class="bg-biscuit-trempe">Énergie (kJ)</td><td class="bg-biscuit-trempe">{{energy}} Kj</td>
-                        </tr>
-                        <tr>
-                        <td class="bg-biscuit-trempe">Énergie (kcal)</td><td class="bg-biscuit-trempe">{{energy_kcal}} Kcal</td>
-                        </tr>
-                        <tr>
-                        <td class="bg-biscuit-trempe">Matières grasses / Lipides</td><td class="bg-biscuit-trempe">{{fat}} g</td>
-                        </tr>
-                        <tr>
-                        <td class="bg-biscuit-trempe">Glucides</td><td class="bg-biscuit-trempe">{{carbohydrates}} g</td>
-                        </tr>
-                        <tr>
-                        <td class="bg-biscuit-trempe">Protéines</td><td class="bg-biscuit-trempe">{{proteins}} g</td>
-                        </tr>
-                        <tr>
-                        <td class="bg-biscuit-trempe">Sel</td><td class="bg-biscuit-trempe">{{salt}} g</td>
-                        </tr>
-                        <tr>
-                        <td class="bg-biscuit-trempe">Sodium</td><td class="bg-biscuit-trempe">{{sodium}} g</td>
-                        </tr> {% endcomment %}
-
                         </table>
                     </div>
                     <br>
