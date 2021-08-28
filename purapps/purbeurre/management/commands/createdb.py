@@ -28,7 +28,11 @@ class Command(BaseCommand):
 
         if Nutriscore.objects.filter(type="e").exists():
             print("The db will be emptied and updated")
+            # Keep users in db:
             Product.objects.all().delete()
+
+            # Or flush:
+            # management.call_command("flush", verbosity=0, interactive=False)
             self.construct_db()
             print("Done, the db is ready.")
         else:
