@@ -22,7 +22,7 @@ load_dotenv(find_dotenv())
 DB_ORIGIN_BASE_NAME = os.getenv("DB_ORIGIN_BASE_NAME")
 DB_ORIGIN_BASE_PASSWD = os.getenv("DB_ORIGIN_BASE_PASSWD")
 DB_APP_USER = os.getenv("DB_APP_USER")
-HOST = os.getenv("HOST")
+HEROKU_HOST = os.getenv("HEROKU_HOST")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -102,7 +102,7 @@ DATABASES = {
         "NAME": DB_ORIGIN_BASE_NAME,
         "USER": DB_APP_USER,
         "PASSWORD": DB_ORIGIN_BASE_PASSWD,
-        "HOST": HOST,
+        "HOST": HEROKU_HOST,
         "PORT": "5432",
         "DISABLE_SERVER_SIDE_CURSORS": True,
         "TEST": {
