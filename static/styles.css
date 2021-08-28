@@ -11400,6 +11400,7 @@ a.p_ref span {
   background-color: white;
   border-radius: 10px;
   margin-top: -15px;
+  border-collapse: inherit;
 }
 
 .nut_a::before {
