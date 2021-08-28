@@ -2,7 +2,14 @@
 {% load static %}
 {% block title %}Erreur 404 - Pur beurre{% endblock title %}
 
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        
+        {% block notfound %}
+        <h2>Erreur 404, cette page n'existe pas.</h2>
+        {% endblock notfound %}
 
-{% block notfound %}
-<h2>Erreur 404, cette page n'existe pas.</h2>
-{% endblock notfound %}
+        </div>
+    </div>
+</header>  
