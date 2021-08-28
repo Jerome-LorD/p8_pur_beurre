@@ -76,12 +76,12 @@ class TitleSeleniumTests(StaticLiveServerTestCase):
 
     def test_results_title(self):
         """Test Results title is 'Subtituts'."""
-        self.browser.get(self.live_server_url + "/results/Coca-cola/")
+        self.browser.get(self.live_server_url + "/results/Coca-Cola/")
         assert "Substituts -- Pur beurre" in self.browser.title
 
     def test_product_title(self):
         """Test Product title is 'Information détaillée'."""
-        self.browser.get(self.live_server_url + "/product/Coca-cola/")
+        self.browser.get(self.live_server_url + "/product/Coca-Cola/")
         assert "Information détaillée -- Pur beurre" in self.browser.title
 
     def test_favorites_redirect_to_login(self):
