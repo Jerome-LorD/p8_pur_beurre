@@ -136,10 +136,10 @@ def save_substitutes(request):
 @login_required
 def favorites(request):
     """Retrieve favorites."""
-    res = Substitutes.objects.filter(user=request.user)
+    products = Substitutes.objects.filter(user=request.user)
 
     return render(
         request,
         "pages/favorites.html",
-        {"products": res},
+        {"products": products},
     )
