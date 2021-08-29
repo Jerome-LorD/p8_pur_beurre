@@ -40,10 +40,10 @@ else:
     DEBUG = True
 
 # Dev mode
-# ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 # Prod mode
-ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com"]
+# ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com"]
 
 # Application definition
 
@@ -173,3 +173,5 @@ AUTH_USER_MODEL = "purauth.User"
 
 # Redirect to profile URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = "registration/profile.html"
+
+LOGIN_URL = "/auth/accounts/login"
