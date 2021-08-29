@@ -2,12 +2,17 @@
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class LoginSeleniumTests(StaticLiveServerTestCase):
     """SeleniumTests class."""
 
-    fixtures = ["functional_tests/users.json"]
+    fixtures = ["functional_tests/users.json", "functional_tests/all-datas.json"]
 
     @classmethod
     def setUpClass(cls):
@@ -15,10 +20,11 @@ class LoginSeleniumTests(StaticLiveServerTestCase):
         super().setUpClass()
         cls.browser = WebDriver()
         cls.browser.implicitly_wait(2)
+        cls.timeout = 5
 
     @classmethod
     def tearDownClass(cls):
-        """Tear down class"""
+        """Tear down class."""
         cls.browser.quit()
         super().tearDownClass()
 
@@ -32,29 +38,45 @@ class LoginSeleniumTests(StaticLiveServerTestCase):
         password_input = self.browser.find_element_by_name("password")
         password_input.send_keys("poufpouf")
         self.browser.find_element_by_xpath('//button[@value="Log-in"]').click()
-        assert "Mon compte -- Pur beurre" in self.browser.title
+        self.assertIn("Mon compte -- Pur beurre", self.browser.title)
 
-    def test_login_logout(self):
-        """Test user Bill login and log out."""
+    def test_research_substitutes_as_logged_user(self):
+        """Test research substitutes a logged user."""
         self.browser.get("%s%s" % (self.live_server_url, "/auth/accounts/login/"))
 
-        # User Bill want to log in:
+        # User Bill wants to log in:
         username_input = self.browser.find_element_by_name("email")
         username_input.send_keys("bill@bool.com")
         password_input = self.browser.find_element_by_name("password")
         password_input.send_keys("poufpouf")
         self.browser.find_element_by_xpath('//button[@value="Log-in"]').click()
 
+        # Bill is looking for a product:
+        products_input = self.browser.find_element_by_id("products")
+        products_input.send_keys("Coca-Cola")
+        products_input.send_keys(Keys.RETURN)
+        products_input.submit()
+        try:
+            results_page = expected_conditions.presence_of_element_located(
+                (By.ID, "cbox")
+            )
+            WebDriverWait(self.browser, self.timeout).until(results_page)
+        except TimeoutException:
+            print("Timed out waiting for page to load")
+
+        self.assertIn("Substituts -- Pur beurre", self.browser.title)
+
+        # Bill wants to add the substitute to his favorites page:
+
         # and now, he want to log out:
-        self.browser.get(self.live_server_url)
         self.browser.find_element_by_id("Log-out").click()
-        assert "Page d'accueil -- Pur beurre" in self.browser.title
+        self.assertIn("Page d'accueil -- Pur beurre", self.browser.title)
 
 
 class TitleSeleniumTests(StaticLiveServerTestCase):
     """SeleniumTests class."""
 
-    fixtures = ["functional_tests/products.json"]
+    fixtures = ["functional_tests/all-datas.json"]
 
     @classmethod
     def setUpClass(cls):
@@ -65,7 +87,7 @@ class TitleSeleniumTests(StaticLiveServerTestCase):
 
     @classmethod
     def tearDownClass(cls):
-        """Tear down class"""
+        """Tear down class."""
         cls.browser.quit()
         super().tearDownClass()
 
