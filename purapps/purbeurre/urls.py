@@ -8,6 +8,7 @@ urlpatterns = [
     path("results/<str:product_name>/", views.results, name="results"),
     path("product/<str:product_name>/", views.product_details, name="product"),
     path("favorites/", views.favorites, name="favorites"),
+    path("mentions/", views.mentions, name="mentions"),
     re_path(r"^autocomplete/", views.autocomplete, name="autocomplete"),
     path("ajax/", views.save_substitutes, name="save_substitutes"),
 ]
