@@ -14,6 +14,11 @@ def index(request):
     return render(request, "pages/home.html")
 
 
+def mentions(request):
+    """Mentions."""
+    return render(request, "pages/mentions.html")
+
+
 def results(request, product_name):
     """Results view from search product form."""
     try:
