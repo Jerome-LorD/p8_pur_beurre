@@ -1,15 +1,17 @@
 """Selenium test module."""
 
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium import webdriver
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 
 
-class LoginSeleniumTests(StaticLiveServerTestCase):
+class SeleniumTests(StaticLiveServerTestCase):
     """SeleniumTests class."""
 
     fixtures = ["functional_tests/users.json", "functional_tests/all-datas.json"]
@@ -41,7 +43,7 @@ class LoginSeleniumTests(StaticLiveServerTestCase):
         self.assertIn("Mon compte -- Pur beurre", self.browser.title)
 
     def test_research_substitutes_as_logged_user(self):
-        """Test research substitutes a logged user."""
+        """Test research substitutes as logged user."""
         self.browser.get("%s%s" % (self.live_server_url, "/auth/accounts/login/"))
 
         # User Bill wants to log in:
@@ -57,9 +59,7 @@ class LoginSeleniumTests(StaticLiveServerTestCase):
         products_input.send_keys(Keys.RETURN)
         products_input.submit()
         try:
-            results_page = expected_conditions.presence_of_element_located(
-                (By.ID, "cbox")
-            )
+            results_page = EC.presence_of_element_located((By.ID, "cbox"))
             WebDriverWait(self.browser, self.timeout).until(results_page)
         except TimeoutException:
             print("Timed out waiting for page to load")
@@ -67,46 +67,36 @@ class LoginSeleniumTests(StaticLiveServerTestCase):
         self.assertIn("Substituts -- Pur beurre", self.browser.title)
 
         # Bill wants to add the substitute to his favorites page:
+        # tst = self.browser.find_element_by_xpath(
+        #     "//input[contains(@onclick,'get_substitutes()')]"
+        # )
+
+        # self.browser.execute_script("arguments[0].click();", tst)
+        # self.browser.find_element_by_xpath('//button[@id="save_btn"]').click()
+
+        # Bill wants to see his favorites page:
+        self.browser.find_element_by_id("favorites_page").click()
 
         # and now, he want to log out:
         self.browser.find_element_by_id("Log-out").click()
         self.assertIn("Page d'accueil -- Pur beurre", self.browser.title)
 
-
-class TitleSeleniumTests(StaticLiveServerTestCase):
-    """SeleniumTests class."""
-
-    fixtures = ["functional_tests/all-datas.json"]
-
-    @classmethod
-    def setUpClass(cls):
-        """Set up class."""
-        super().setUpClass()
-        cls.browser = WebDriver()
-        cls.browser.implicitly_wait(2)
-
-    @classmethod
-    def tearDownClass(cls):
-        """Tear down class."""
-        cls.browser.quit()
-        super().tearDownClass()
-
     def test_index_title(self):
         """Test Index title is 'Page d'accueil'."""
         self.browser.get(self.live_server_url)
-        assert "Page d'accueil -- Pur beurre" in self.browser.title
+        self.assertIn("Page d'accueil -- Pur beurre", self.browser.title)
 
     def test_results_title(self):
         """Test Results title is 'Subtituts'."""
         self.browser.get(self.live_server_url + "/results/Coca-Cola/")
-        assert "Substituts -- Pur beurre" in self.browser.title
+        self.assertIn("Substituts -- Pur beurre", self.browser.title)
 
     def test_product_title(self):
         """Test Product title is 'Information détaillée'."""
         self.browser.get(self.live_server_url + "/product/Coca-Cola/")
-        assert "Information détaillée -- Pur beurre" in self.browser.title
+        self.assertIn("Information détaillée -- Pur beurre", self.browser.title)
 
     def test_favorites_redirect_to_login(self):
         """Test favorites redirect to login with no user connected."""
         self.browser.get(self.live_server_url + "/favorites/")
-        assert "Login -- Pur beurre" in self.browser.title
+        self.assertIn("Login -- Pur beurre", self.browser.title)
