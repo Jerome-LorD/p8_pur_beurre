@@ -2,37 +2,43 @@
 {% block title %}Inscription -- Pur beurre{% endblock title %}
 
 {% block inscription %}
-
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Inscription</h1>
-                        <hr class="divider" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                    <div class="input-group mb-3 d-flex justify-content-center">
-
-                    <form method="post">
-                      {% csrf_token %}
-
-                    {% for field in form_ins %}
-                      <p>
-                        {{ field }}
-                        {% for error in field.errors %}
-                          <p style="color: red">{{ error }}</p>
-                        {% endfor %}
-                      </p>
-                    {% endfor %}
-
-                      <button type="submit" class="btn btn-primary">Valider l'inscription</button>
-                    </form>
+<section class="page-section bg-moules-frites">
+    <div class="container px-4 px-lg-5 bg-primary">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="prod_rep2" style="background-color: black; height: 200px; color: white;">
+                <h3 class="text-white font-weight-bold">Inscription</h3>
+            </div>
 
 
-                       </div>
-                    </div>
-                    </div>
+        </div>
+      
+    </div>
+</section>
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+            <div class="input-group mb-3 d-flex justify-content-center">
 
-                    </div>
-        </header>                
+            <form method="post">
+              {% csrf_token %}
+
+            {% for field in form_ins %}
+              <p>
+                {{ field }}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+              </p>
+            {% endfor %}
+
+              <button type="submit" class="btn btn-primary">Valider l'inscription</button>
+            </form>
+            </div>
+        </div>
+      </div>
+    </div>
+</header>                
 {% endblock %}
