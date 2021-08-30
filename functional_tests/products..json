@@ -1,6 +1,84 @@
 [
 {
     "model": "purbeurre.product",
+    "pk": 1,
+    "fields": {
+        "name": "Prince Chocolat",
+        "brand": "Lu",
+        "image": "https://images.openfoodfacts.org/images/products/762/221/044/9283/front_fr.429.200.jpg",
+        "nutriments": {
+            "fat_100g": 17,
+            "salt_100g": 0.58,
+            "fiber_100g": 4,
+            "energy_100g": 1955,
+            "sodium_100g": 0.232,
+            "sugars_100g": 32,
+            "proteins_100g": 6.4,
+            "energy-kj_100g": 1955,
+            "nova-group_100g": 4,
+            "energy-kcal_100g": 465,
+            "carbohydrates_100g": 69,
+            "saturated-fat_100g": 5.6,
+            "energy_prepared_100g": 391,
+            "nutrition-score-fr_100g": 15,
+            "carbon-footprint-from-known-ingredients_100g": 15.21,
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g": 4.5
+        },
+        "url": "https://fr.openfoodfacts.org/produit/7622210449283/prince-chocolat-lu",
+        "nutriscore": 1,
+        "categories": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "purbeurre.product",
+    "pk": 127,
+    "fields": {
+        "name": "Coca-Cola sans sucres",
+        "brand": "The Coca-Cola Company",
+        "image": "https://images.openfoodfacts.org/images/products/500/011/261/1762/front_fr.54.200.jpg",
+        "nutriments": {
+            "fat_100g": 0,
+            "salt_100g": 0.02,
+            "energy_100g": 1.4,
+            "sodium_100g": 0.008,
+            "sugars_100g": 0,
+            "proteins_100g": 0,
+            "energy-kj_100g": 1.4,
+            "nova-group_100g": 4,
+            "energy-kcal_100g": 0.3,
+            "fat_prepared_100g": 0,
+            "carbohydrates_100g": 0,
+            "salt_prepared_100g": 0.02,
+            "saturated-fat_100g": 0,
+            "energy_prepared_100g": 1.6,
+            "sodium_prepared_100g": 0.008,
+            "energy-kj_prepared_100g": 1.6,
+            "nutrition-score-fr_100g": 1,
+            "energy-kcal_prepared_100g": 0.4,
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g": 0
+        },
+        "url": "https://fr.openfoodfacts.org/produit/5000112611762/coca-cola-sans-sucres-the-coca-cola-company",
+        "nutriscore": 3,
+        "categories": [
+            35,
+            98,
+            151,
+            231,
+            232,
+            233,
+            234,
+            235
+        ]
+    }
+},
+{
+    "model": "purbeurre.product",
     "pk": 469,
     "fields": {
         "name": "Coca-Cola",
