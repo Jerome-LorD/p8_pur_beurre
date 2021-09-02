@@ -67,12 +67,6 @@ class SeleniumTests(StaticLiveServerTestCase):
         self.assertIn("Substituts -- Pur beurre", self.browser.title)
 
         # Bill wants to add the substitute to his favorites page:
-        # tst = self.browser.find_element_by_xpath(
-        #     "//input[contains(@onclick,'get_substitutes()')]"
-        # )
-
-        # self.browser.execute_script("arguments[0].click();", tst)
-        # self.browser.find_element_by_xpath('//button[@id="save_btn"]').click()
 
         # Bill wants to see his favorites page:
         self.browser.find_element_by_id("favorites_page").click()
