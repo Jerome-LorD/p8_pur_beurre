@@ -7,6 +7,10 @@ before_script:
   - pip install -r requirements.txt
 services:
   - postgresql
+# safelist
+branches:
+  only:
+    - dev
 # command to run tests
 script:
   - python manage.py test
