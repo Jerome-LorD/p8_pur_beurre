@@ -1,6 +1,7 @@
 language: python
 python:
   - '3.9'
+env: app.settings.py
 # command to install dependencies
 before_script:
   - pip install -r requirements.txt
