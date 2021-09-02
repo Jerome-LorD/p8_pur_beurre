@@ -5,6 +5,10 @@ env: app.settings.py
 # command to install dependencies
 before_script:
   - pip install -r requirements.txt
+# safelist
+branches:
+  only:
+    - dev
 services:
   - postgresql
 # command to run tests
