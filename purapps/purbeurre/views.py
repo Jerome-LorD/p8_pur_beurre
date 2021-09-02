@@ -14,16 +14,24 @@ def index(request):
     return render(request, "pages/home.html")
 
 
+def mentions(request):
+    """Mentions."""
+    return render(request, "pages/mentions.html")
+
+
 def results(request, product_name):
     """Results view from search product form."""
     try:
         result = Product.objects.filter(name__iregex=r"^%s$" % product_name)
-        product = result.first()
-        substit = Product.find_substitute(product.id).order_by("nutriscore__type")
+    except Product.DoesNotExist:
+        raise Http404("Cette page n'existe pas")
 
-        if product.id != substit[0].id:
-            page = request.GET.get("page", 1)
-            paginator = Paginator(substit, 8)
+    page = request.GET.get("page", 1)
+    if result.first():
+        product = result.first()
+        substit = product.find_substitute()
+        if substit is not None:
+            paginator = Paginator(substit, 16)
             try:
                 page_result = paginator.page(page)
             except PageNotAnInteger:
@@ -42,33 +50,48 @@ def results(request, product_name):
             )
 
         else:
-            no_result = Product.objects.filter(name__icontains="%s" % product_name)
-            page_no_res = request.GET.get("page", 1)
-            paginator = Paginator(no_result, 8)
-            try:
-                page_no_result = paginator.page(page_no_res)
-            except PageNotAnInteger:
-                page_no_result = paginator.page(1)
-            except EmptyPage:
-                page_no_result = paginator.page(paginator.num_pages)
+            no_result = "Il n'y a pas de substitut pour ce produit."
             return render(
                 request,
                 "pages/results.html",
                 {
                     "product": product,
-                    "search_term": product_name,
-                    "page_no_result": page_no_result,
                     "no_result": no_result,
                 },
             )
 
-    except Product.DoesNotExist:
-        raise Http404("Cette page n'existe pas")
+    elif not result.first():
+
+        general_research = Product.objects.filter(
+            name__icontains="%s" % product_name
+        ).order_by("nutriscore__type")
+
+        gal_search = general_research.all()
+        paginator = Paginator(gal_search, 16)
+
+        try:
+            page_no_result = paginator.page(page)
+        except PageNotAnInteger:
+            page_no_result = paginator.page(1)
+        except EmptyPage:
+            page_no_result = paginator.page(paginator.num_pages)
+
+        return render(
+            request,
+            "pages/results.html",
+            {
+                "gal_search": gal_search,
+                "search_term": product_name,
+                "page_no_result": page_no_result,
+            },
+        )
+
+    return render(request, "pages/results.html", {"search_term": product_name})
 
 
-def err_404(request, exception=None):
+def error_404(request, exception):
     """Error 404 view."""
-    return render(request, "pages/404.html")
+    return render(request, "pages/404.html", status=404)
 
 
 def product_details(request, product_name):
@@ -92,7 +115,7 @@ def autocomplete(request):
         product = request.GET.get("term", "")
         products = Product.objects.filter(name__icontains="%s" % product).order_by(
             "id"
-        )[:7]
+        )[:10]
 
     return JsonResponse([{"name": item.name} for item in products], safe=False)
 
@@ -107,20 +130,10 @@ def save_substitutes(request):
         ref_product = Product.objects.get(pk=ref_product_id)
 
         for item_id in products:
-            if Substitutes.objects.filter(
-                product_id=item_id,
-                reference_id=ref_product.id,
-                user_id=request.user.id,
-            ).exists():
-                pass
 
-            else:
-                substitute = Substitutes(
-                    product_id=item_id,
-                    reference_id=ref_product.id,
-                    user_id=request.user.id,
-                )
-                substitute.save()
+            Substitutes.objects.get_or_create(
+                product_id=item_id, reference_id=ref_product.id, user_id=request.user.id
+            )
 
     return render(request, "pages/results.html", {"products": products})
 
@@ -128,10 +141,10 @@ def save_substitutes(request):
 @login_required
 def favorites(request):
     """Retrieve favorites."""
-    res = Substitutes.objects.filter(user=request.user)
+    products = Substitutes.objects.filter(user=request.user)
 
     return render(
         request,
         "pages/favorites.html",
-        {"products": res},
+        {"products": products},
     )

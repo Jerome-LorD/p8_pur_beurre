@@ -1,0 +1,11 @@
+language: python
+python:
+  - '3.9'
+# command to install dependencies
+before_script:
+  - pip install -r requirements.txt
+services:
+  - postgresql
+# command to run tests
+script:
+  - python manage.py test

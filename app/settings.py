@@ -22,11 +22,10 @@ load_dotenv(find_dotenv())
 DB_ORIGIN_BASE_NAME = os.getenv("DB_ORIGIN_BASE_NAME")
 DB_ORIGIN_BASE_PASSWD = os.getenv("DB_ORIGIN_BASE_PASSWD")
 DB_APP_USER = os.getenv("DB_APP_USER")
-
+HEROKU_HOST = os.getenv("HEROKU_HOST")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-SQL_FILE = BASE_DIR / "sql/offdb_p8.sql"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -41,10 +40,10 @@ else:
     DEBUG = True
 
 # Dev mode
-# ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 # Prod mode
-ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com"]
+# ALLOWED_HOSTS = ["jlord-purbeurre-p8.herokuapp.com"]
 
 # Application definition
 
@@ -62,6 +61,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -102,8 +102,12 @@ DATABASES = {
         "NAME": DB_ORIGIN_BASE_NAME,
         "USER": DB_APP_USER,
         "PASSWORD": DB_ORIGIN_BASE_PASSWD,
-        "HOST": "localhost",
-        "PORT": "",
+        "HOST": HEROKU_HOST,
+        "PORT": "5432",
+        "DISABLE_SERVER_SIDE_CURSORS": True,
+        "TEST": {
+            "NAME": "purbeurre_test_database",
+        },
         "OPTIONS": {
             "isolation_level": psycopg2.extensions.ISOLATION_LEVEL_SERIALIZABLE,
         },
@@ -149,9 +153,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "purapps/purbeurre/static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = "purapps/purbeurre/static/"
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
@@ -162,5 +171,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Custom user
 AUTH_USER_MODEL = "purauth.User"
 
-# Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = "/"
+# Redirect to profile URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = "registration/profile.html"
+
+LOGIN_URL = "/auth/accounts/login"

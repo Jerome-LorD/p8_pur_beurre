@@ -48,5 +48,6 @@ def user_profile(request):
 
 
 def user_logout(request):
+    """Log out."""
     logout(request)
     return redirect("index")

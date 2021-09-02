@@ -1,3 +1,4 @@
+"""Middleware module."""
 from purapps.purbeurre.forms import SearchProduct
 from django.shortcuts import redirect
 

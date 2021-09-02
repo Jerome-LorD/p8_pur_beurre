@@ -4,3 +4,6 @@ pbenv
 .vscode
 .env
 **/node_modules/
+staticfiles/
+.coverage
+geckodriver.log

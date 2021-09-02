@@ -1,0 +1,4084 @@
+[
+{
+    "model": "purbeurre.product",
+    "pk": 1,
+    "fields": {
+        "name": "Prince Chocolat",
+        "brand": "Lu",
+        "image": "https://images.openfoodfacts.org/images/products/762/221/044/9283/front_fr.429.200.jpg",
+        "nutriments": {
+            "fat_100g": 17,
+            "salt_100g": 0.58,
+            "fiber_100g": 4,
+            "energy_100g": 1955,
+            "sodium_100g": 0.232,
+            "sugars_100g": 32,
+            "proteins_100g": 6.4,
+            "energy-kj_100g": 1955,
+            "nova-group_100g": 4,
+            "energy-kcal_100g": 465,
+            "carbohydrates_100g": 69,
+            "saturated-fat_100g": 5.6,
+            "energy_prepared_100g": 391,
+            "nutrition-score-fr_100g": 15,
+            "carbon-footprint-from-known-ingredients_100g": 15.21,
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g": 4.5
+        },
+        "url": "https://fr.openfoodfacts.org/produit/7622210449283/prince-chocolat-lu",
+        "nutriscore": 1,
+        "categories": [
+            1,
+            2,
+            3,
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "purbeurre.product",
+    "pk": 127,
+    "fields": {
+        "name": "Coca-Cola sans sucres",
+        "brand": "The Coca-Cola Company",
+        "image": "https://images.openfoodfacts.org/images/products/500/011/261/1762/front_fr.54.200.jpg",
+        "nutriments": {
+            "fat_100g": 0,
+            "salt_100g": 0.02,
+            "energy_100g": 1.4,
+            "sodium_100g": 0.008,
+            "sugars_100g": 0,
+            "proteins_100g": 0,
+            "energy-kj_100g": 1.4,
+            "nova-group_100g": 4,
+            "energy-kcal_100g": 0.3,
+            "fat_prepared_100g": 0,
+            "carbohydrates_100g": 0,
+            "salt_prepared_100g": 0.02,
+            "saturated-fat_100g": 0,
+            "energy_prepared_100g": 1.6,
+            "sodium_prepared_100g": 0.008,
+            "energy-kj_prepared_100g": 1.6,
+            "nutrition-score-fr_100g": 1,
+            "energy-kcal_prepared_100g": 0.4,
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g": 0
+        },
+        "url": "https://fr.openfoodfacts.org/produit/5000112611762/coca-cola-sans-sucres-the-coca-cola-company",
+        "nutriscore": 3,
+        "categories": [
+            35,
+            98,
+            151,
+            231,
+            232,
+            233,
+            234,
+            235
+        ]
+    }
+},
+{
+    "model": "purbeurre.product",
+    "pk": 469,
+    "fields": {
+        "name": "Coca-Cola",
+        "brand": "Coca-Cola",
+        "image": "https://images.openfoodfacts.org/images/products/500/011/255/8272/front_fr.81.200.jpg",
+        "nutriments": {
+            "fat_100g": 0,
+            "salt_100g": 0,
+            "fiber_100g": 0,
+            "energy_100g": 180,
+            "sodium_100g": 0,
+            "sugars_100g": 10.6,
+            "alcohol_100g": 0,
+            "proteins_100g": 0,
+            "energy-kj_100g": 180,
+            "nova-group_100g": 4,
+            "carbohydrates_100g": 10.6,
+            "saturated-fat_100g": 0,
+            "nutrition-score-fr_100g": 14,
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g": 0
+        },
+        "url": "https://fr.openfoodfacts.org/produit/5000112558272/coca-cola",
+        "nutriscore": 4,
+        "categories": [
+            35,
+            74,
+            97,
+            98,
+            231,
+            233
+        ]
+    }
+},
+{
+    "model": "purbeurre.nutriscore",
+    "pk": 1,
+    "fields": {
+        "type": "d"
+    }
+},
+{
+    "model": "purbeurre.nutriscore",
+    "pk": 2,
+    "fields": {
+        "type": "c"
+    }
+},
+{
+    "model": "purbeurre.nutriscore",
+    "pk": 3,
+    "fields": {
+        "type": "b"
+    }
+},
+{
+    "model": "purbeurre.nutriscore",
+    "pk": 4,
+    "fields": {
+        "type": "e"
+    }
+},
+{
+    "model": "purbeurre.nutriscore",
+    "pk": 5,
+    "fields": {
+        "type": "a"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 1,
+    "fields": {
+        "name": "Snacks"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 2,
+    "fields": {
+        "name": "Snacks sucrés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 3,
+    "fields": {
+        "name": "Biscuits et géteaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 4,
+    "fields": {
+        "name": "Biscuits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 5,
+    "fields": {
+        "name": "Biscuits au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 6,
+    "fields": {
+        "name": "Aliments et boissons é base de végétaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 7,
+    "fields": {
+        "name": "Aliments d'origine végétale"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 8,
+    "fields": {
+        "name": "Céréales et pommes de terre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 9,
+    "fields": {
+        "name": "Pains"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 10,
+    "fields": {
+        "name": "Pains de mie"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 11,
+    "fields": {
+        "name": "Pains de mie sans croéte"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 12,
+    "fields": {
+        "name": "Cacao et dérivés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 13,
+    "fields": {
+        "name": "Chocolats"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 14,
+    "fields": {
+        "name": "Chocolats noirs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 15,
+    "fields": {
+        "name": "Chocolat noir en tablette extra dégustation é 70% de cacao minimum"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 16,
+    "fields": {
+        "name": "Chocolats noirs extra fin"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 17,
+    "fields": {
+        "name": "Aides é la pétisserie"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 18,
+    "fields": {
+        "name": "Aides culinaires"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 19,
+    "fields": {
+        "name": "Matiéres grasses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 20,
+    "fields": {
+        "name": "Produits é tartiner"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 21,
+    "fields": {
+        "name": "Produits é tartiner salés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 22,
+    "fields": {
+        "name": "Matiéres grasses é tartiner"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 23,
+    "fields": {
+        "name": "Matiéres grasses végétales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 24,
+    "fields": {
+        "name": "Pétes é tartiner végétales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 25,
+    "fields": {
+        "name": "Margarines"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 26,
+    "fields": {
+        "name": "Margarines allégées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 27,
+    "fields": {
+        "name": "Légumineuses et dérivés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 28,
+    "fields": {
+        "name": "Fruits é coques et dérivés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 29,
+    "fields": {
+        "name": "Purées d'oléagineux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 30,
+    "fields": {
+        "name": "Beurres de légumineuses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 31,
+    "fields": {
+        "name": "Beurres de fruits é coques"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 32,
+    "fields": {
+        "name": "Beurres de cacahuétes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 33,
+    "fields": {
+        "name": "Pains complets"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 34,
+    "fields": {
+        "name": "Pains de mie complet"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 35,
+    "fields": {
+        "name": "Boissons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 36,
+    "fields": {
+        "name": "Eaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 37,
+    "fields": {
+        "name": "Eaux de sources"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 38,
+    "fields": {
+        "name": "Eaux minérales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 39,
+    "fields": {
+        "name": "Eaux minérales naturelles"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 40,
+    "fields": {
+        "name": "Boissons sans sucre ajouté"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 41,
+    "fields": {
+        "name": "Géteaux secs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 42,
+    "fields": {
+        "name": "Biscuits secs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 43,
+    "fields": {
+        "name": "Géteaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 44,
+    "fields": {
+        "name": "Géteaux secs céréales complétes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 45,
+    "fields": {
+        "name": "Biscuits secs céréales complétes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 46,
+    "fields": {
+        "name": "Aliments é base de fruits et de légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 47,
+    "fields": {
+        "name": "Plats préparés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 48,
+    "fields": {
+        "name": "Légumes et dérivés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 49,
+    "fields": {
+        "name": "Frais"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 50,
+    "fields": {
+        "name": "Soupes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 51,
+    "fields": {
+        "name": "Plats préparés frais"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 52,
+    "fields": {
+        "name": "Réfrigérés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 53,
+    "fields": {
+        "name": "Soupes de légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 54,
+    "fields": {
+        "name": "Soupes froides"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 55,
+    "fields": {
+        "name": "Plats préparés réfrigérés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 56,
+    "fields": {
+        "name": "Gaspacho"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 57,
+    "fields": {
+        "name": "Soupes réfrigérées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 58,
+    "fields": {
+        "name": "Viandes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 59,
+    "fields": {
+        "name": "Charcuteries"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 60,
+    "fields": {
+        "name": "Jambons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 61,
+    "fields": {
+        "name": "Jambons blancs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 62,
+    "fields": {
+        "name": "Jambon cuit supérieur découenné"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 63,
+    "fields": {
+        "name": "Jambon cuit supérieur"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 64,
+    "fields": {
+        "name": "Biscuits au son de blé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 65,
+    "fields": {
+        "name": "Biscuits au son de blé et la figue"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 66,
+    "fields": {
+        "name": "Viennoiseries"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 67,
+    "fields": {
+        "name": "Brioches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 68,
+    "fields": {
+        "name": "Brioches tressées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 69,
+    "fields": {
+        "name": "Brioches pur beurre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 70,
+    "fields": {
+        "name": "Brioches natures"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 71,
+    "fields": {
+        "name": "Brioches tranchées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 72,
+    "fields": {
+        "name": "D"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 73,
+    "fields": {
+        "name": "Tartines craquantes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 74,
+    "fields": {
+        "name": "Boissons sans alcool"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 75,
+    "fields": {
+        "name": "Géches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 76,
+    "fields": {
+        "name": "Cacaos et chocolats en poudre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 77,
+    "fields": {
+        "name": "Cacaos en poudre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 78,
+    "fields": {
+        "name": "Produits laitiers"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 79,
+    "fields": {
+        "name": "Produits fermentés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 80,
+    "fields": {
+        "name": "Produits laitiers fermentés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 81,
+    "fields": {
+        "name": "Yaourts"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 82,
+    "fields": {
+        "name": "Yaourts nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 83,
+    "fields": {
+        "name": "Nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 84,
+    "fields": {
+        "name": "Pains de mie blancs nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 85,
+    "fields": {
+        "name": "Pains croustillants"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 86,
+    "fields": {
+        "name": "Madeleines"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 87,
+    "fields": {
+        "name": "Madeleines natures"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 88,
+    "fields": {
+        "name": "Epicerie"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 89,
+    "fields": {
+        "name": "Condiments"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 90,
+    "fields": {
+        "name": "Sauces"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 91,
+    "fields": {
+        "name": "Moutardes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 92,
+    "fields": {
+        "name": "Moutardes de Dijon"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 93,
+    "fields": {
+        "name": "Moutardes fines"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 94,
+    "fields": {
+        "name": "Moutarde Fine De Dijon"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 95,
+    "fields": {
+        "name": "Boissons é base de végétaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 96,
+    "fields": {
+        "name": "Boissons aux fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 97,
+    "fields": {
+        "name": "Boissons avec sucre ajouté"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 98,
+    "fields": {
+        "name": "Boissons gazeuses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 99,
+    "fields": {
+        "name": "Eaux gazeuses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 100,
+    "fields": {
+        "name": "Eaux minérales gazeuses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 101,
+    "fields": {
+        "name": "Biscuits fourrés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 102,
+    "fields": {
+        "name": "Fromages"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 103,
+    "fields": {
+        "name": "Fromages é tartiner"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 104,
+    "fields": {
+        "name": "Pains de mie aux céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 105,
+    "fields": {
+        "name": "Matiéres grasses animales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 106,
+    "fields": {
+        "name": "Matiére grasse laitiére"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 107,
+    "fields": {
+        "name": "Produits laitiers é tartiner"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 108,
+    "fields": {
+        "name": "Beurres"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 109,
+    "fields": {
+        "name": "Matiére grasse de beurre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 110,
+    "fields": {
+        "name": "Beurres de créme douce"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 111,
+    "fields": {
+        "name": "Pains grillés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 112,
+    "fields": {
+        "name": "Petits pains grillés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 113,
+    "fields": {
+        "name": "Jus et nectars"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 114,
+    "fields": {
+        "name": "Jus de fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 115,
+    "fields": {
+        "name": "Jus d'orange"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 116,
+    "fields": {
+        "name": "Jus de fruits pur jus"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 117,
+    "fields": {
+        "name": "Jus d'orange pur jus"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 118,
+    "fields": {
+        "name": "Mayonnaises"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 119,
+    "fields": {
+        "name": "Mayonnaises de Dijon"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 120,
+    "fields": {
+        "name": "Produits é teneur réduite en sel"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 121,
+    "fields": {
+        "name": "Charcuteries é teneur réduite en sel"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 122,
+    "fields": {
+        "name": "Jambons blancs é teneur réduite en sel"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 123,
+    "fields": {
+        "name": "Biscuits au chocolat au lait"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 124,
+    "fields": {
+        "name": "Desserts"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 125,
+    "fields": {
+        "name": "Desserts lactés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 126,
+    "fields": {
+        "name": "Fromages blancs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 127,
+    "fields": {
+        "name": "Fromages blancs natures"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 128,
+    "fields": {
+        "name": "Alimentaire"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 129,
+    "fields": {
+        "name": "Confiseries"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 130,
+    "fields": {
+        "name": "Confiseries chocolatées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 131,
+    "fields": {
+        "name": "Bonbons de chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 132,
+    "fields": {
+        "name": "Fruits et produits dérivés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 133,
+    "fields": {
+        "name": "Compotes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 134,
+    "fields": {
+        "name": "Compotes de pomme"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 135,
+    "fields": {
+        "name": "Compotes pommes nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 136,
+    "fields": {
+        "name": "Compotes é boire"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 137,
+    "fields": {
+        "name": "Pains au lait"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 138,
+    "fields": {
+        "name": "Céréales et dérivés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 139,
+    "fields": {
+        "name": "Farines"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 140,
+    "fields": {
+        "name": "Farines de céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 141,
+    "fields": {
+        "name": "Amidons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 142,
+    "fields": {
+        "name": "Amidons de céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 143,
+    "fields": {
+        "name": "Amidon de maés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 144,
+    "fields": {
+        "name": "Farines de maés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 145,
+    "fields": {
+        "name": "Pains au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 146,
+    "fields": {
+        "name": "Biscuits sablés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 147,
+    "fields": {
+        "name": "Snacks salés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 148,
+    "fields": {
+        "name": "Apéritif"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 149,
+    "fields": {
+        "name": "Biscuits apéritifs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 150,
+    "fields": {
+        "name": "Biscuits é l'avoine"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 151,
+    "fields": {
+        "name": "Boissons édulcorées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 152,
+    "fields": {
+        "name": "Boissons au thé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 153,
+    "fields": {
+        "name": "Thés glacés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 154,
+    "fields": {
+        "name": "Thés glacés saveur péche"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 155,
+    "fields": {
+        "name": "Fromages é la créme"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 156,
+    "fields": {
+        "name": "Skyr"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 157,
+    "fields": {
+        "name": "Géteaux au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 158,
+    "fields": {
+        "name": "Madeleines au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 159,
+    "fields": {
+        "name": "Chocolats salés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 160,
+    "fields": {
+        "name": "Chocolats é la fleur de sel"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 161,
+    "fields": {
+        "name": "Chocolats noirs salés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 162,
+    "fields": {
+        "name": "Chocolats noirs é la fleur de sel"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 163,
+    "fields": {
+        "name": "Substitut du lait"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 164,
+    "fields": {
+        "name": "Boissons végétales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 165,
+    "fields": {
+        "name": "Boissons végétales de céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 166,
+    "fields": {
+        "name": "Boissons é l'avoine"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 167,
+    "fields": {
+        "name": "Boissons végétales é base d'avoine"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 168,
+    "fields": {
+        "name": "Barres"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 169,
+    "fields": {
+        "name": "Barres de céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 170,
+    "fields": {
+        "name": "Barres chocolatées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 171,
+    "fields": {
+        "name": "Barres de céréales au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 172,
+    "fields": {
+        "name": "Barres chocolatées au lait"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 173,
+    "fields": {
+        "name": "Sauces pour pétes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 174,
+    "fields": {
+        "name": "Sauces tomate"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 175,
+    "fields": {
+        "name": "Sauces aux légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 176,
+    "fields": {
+        "name": "Sauces tomate aux petits légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 177,
+    "fields": {
+        "name": "Sauces pour féculents"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 178,
+    "fields": {
+        "name": "Sauces tomates cuisinée aux petits légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 179,
+    "fields": {
+        "name": "Biscuits aux fruits rouges"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 180,
+    "fields": {
+        "name": "Biscuits édulcorés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 181,
+    "fields": {
+        "name": "Fromages pasteurisés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 182,
+    "fields": {
+        "name": "Fromages é péte fondue"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 183,
+    "fields": {
+        "name": "Légumes préparés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 184,
+    "fields": {
+        "name": "Ratatouilles"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 185,
+    "fields": {
+        "name": "Substituts de viande"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 186,
+    "fields": {
+        "name": "Protéine végétale texturée"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 187,
+    "fields": {
+        "name": "Test"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 188,
+    "fields": {
+        "name": "Gnocchi"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 189,
+    "fields": {
+        "name": "Gnocchi de pommes de terre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 190,
+    "fields": {
+        "name": "Fromages de France"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 191,
+    "fields": {
+        "name": "Chips et frites"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 192,
+    "fields": {
+        "name": "Chips"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 193,
+    "fields": {
+        "name": "Tuiles salées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 194,
+    "fields": {
+        "name": "Fromage fouetté"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 195,
+    "fields": {
+        "name": "Galettes de céréales soufflées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 196,
+    "fields": {
+        "name": "Galettes de riz soufflé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 197,
+    "fields": {
+        "name": "Galettes de riz complet soufflé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 198,
+    "fields": {
+        "name": "Pains spéciaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 199,
+    "fields": {
+        "name": "Biscuits tablette de chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 200,
+    "fields": {
+        "name": "Biscuits au chocolat noir"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 201,
+    "fields": {
+        "name": "Biscuits tablette de chocolat noir"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 202,
+    "fields": {
+        "name": "Petits beurres"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 203,
+    "fields": {
+        "name": "Petit beurre au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 204,
+    "fields": {
+        "name": "Biscuits tablette de chocolat au lait"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 205,
+    "fields": {
+        "name": "édulcorants"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 206,
+    "fields": {
+        "name": "Sirops"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 207,
+    "fields": {
+        "name": "Sirops simples"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 208,
+    "fields": {
+        "name": "Sirops d'agave"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 209,
+    "fields": {
+        "name": "Pains plats"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 210,
+    "fields": {
+        "name": "Pains blancs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 211,
+    "fields": {
+        "name": "Pains de blé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 212,
+    "fields": {
+        "name": "Tortillas de blé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 213,
+    "fields": {
+        "name": "Fromages de chévre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 214,
+    "fields": {
+        "name": "Produits de la mer"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 215,
+    "fields": {
+        "name": "Poissons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 216,
+    "fields": {
+        "name": "Préparations de poisson"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 217,
+    "fields": {
+        "name": "Surimi"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 218,
+    "fields": {
+        "name": "Conserves"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 219,
+    "fields": {
+        "name": "Poissons en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 220,
+    "fields": {
+        "name": "Sardines"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 221,
+    "fields": {
+        "name": "Sardines en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 222,
+    "fields": {
+        "name": "Sardines é l'huile"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 223,
+    "fields": {
+        "name": "Sardines é l'huile d'olive"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 224,
+    "fields": {
+        "name": "Poissons et viandes et oeufs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 225,
+    "fields": {
+        "name": "Sardine é l'huile d'olive appertisée"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 226,
+    "fields": {
+        "name": "Fromages de vache"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 227,
+    "fields": {
+        "name": "Fromage frais pasteurisé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 228,
+    "fields": {
+        "name": "Fromages é péte pressée non cuite"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 229,
+    "fields": {
+        "name": "Fromages é péte fraéche"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 230,
+    "fields": {
+        "name": "Riche en Protéines 0é% de Mat. Gr."
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 231,
+    "fields": {
+        "name": "Sodas"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 232,
+    "fields": {
+        "name": "Boissons light"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 233,
+    "fields": {
+        "name": "Sodas au cola"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 234,
+    "fields": {
+        "name": "Sodas light"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 235,
+    "fields": {
+        "name": "Sodas au cola light"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 236,
+    "fields": {
+        "name": "Sauces provenéales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 237,
+    "fields": {
+        "name": "Pétes é la sauce tomate"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 238,
+    "fields": {
+        "name": "Sauce tomate Provenéale"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 239,
+    "fields": {
+        "name": "Produits é la viande"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 240,
+    "fields": {
+        "name": "Plats é base de pétes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 241,
+    "fields": {
+        "name": "Plats préparés é la viande"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 242,
+    "fields": {
+        "name": "Pétes alimentaires"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 243,
+    "fields": {
+        "name": "Pétes farcies"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 244,
+    "fields": {
+        "name": "Plats au béuf"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 245,
+    "fields": {
+        "name": "Pates farcies é la viande"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 246,
+    "fields": {
+        "name": "Ravioli"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 247,
+    "fields": {
+        "name": "Plats préparés en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 248,
+    "fields": {
+        "name": "Ravioli é la viande"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 249,
+    "fields": {
+        "name": "Raviolis au béuf"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 250,
+    "fields": {
+        "name": "Ravioli en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 251,
+    "fields": {
+        "name": "Fromages é péte pressée cuite"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 252,
+    "fields": {
+        "name": "Emmentals"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 253,
+    "fields": {
+        "name": "Fromages répés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 254,
+    "fields": {
+        "name": "Emmentals répés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 255,
+    "fields": {
+        "name": "Produits de l'olivier"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 256,
+    "fields": {
+        "name": "Huiles"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 257,
+    "fields": {
+        "name": "Huiles d'olive"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 258,
+    "fields": {
+        "name": "Huiles d'olive vierges"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 259,
+    "fields": {
+        "name": "Huiles d'olive vierges extra"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 260,
+    "fields": {
+        "name": "Jus multifruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 261,
+    "fields": {
+        "name": "Tartines"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 262,
+    "fields": {
+        "name": "Carottes répées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 263,
+    "fields": {
+        "name": "Carottes répées assaisonnées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 264,
+    "fields": {
+        "name": "Crudité"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 265,
+    "fields": {
+        "name": "Biscuits bétonnets au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 266,
+    "fields": {
+        "name": "Thons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 267,
+    "fields": {
+        "name": "Thons en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 268,
+    "fields": {
+        "name": "Thons au naturel"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 269,
+    "fields": {
+        "name": "Tomates et dérivés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 270,
+    "fields": {
+        "name": "Purées de tomates"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 271,
+    "fields": {
+        "name": "Bases culinaires"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 272,
+    "fields": {
+        "name": "Purée de tomates fraéches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 273,
+    "fields": {
+        "name": "Boissons végétales de légumineuses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 274,
+    "fields": {
+        "name": "Boissons végétales de soja"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 275,
+    "fields": {
+        "name": "Boissons végétales de soja nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 276,
+    "fields": {
+        "name": "Desserts végétaliens"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 277,
+    "fields": {
+        "name": "Produits végétaux fermentés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 278,
+    "fields": {
+        "name": "Yaourts végétaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 279,
+    "fields": {
+        "name": "Crémes dessert"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 280,
+    "fields": {
+        "name": "Desserts au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 281,
+    "fields": {
+        "name": "Crémes dessert rayon frais"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 282,
+    "fields": {
+        "name": "Crémes dessert chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 283,
+    "fields": {
+        "name": "Cookies"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 284,
+    "fields": {
+        "name": "Cookies au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 285,
+    "fields": {
+        "name": "Cookies au chocolat et aux noisettes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 286,
+    "fields": {
+        "name": "Petits suisses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 287,
+    "fields": {
+        "name": "Petits suisses nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 288,
+    "fields": {
+        "name": "Compotes allégées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 289,
+    "fields": {
+        "name": "Pains de seigle"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 290,
+    "fields": {
+        "name": "Fromages en tranches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 291,
+    "fields": {
+        "name": "Préparations de viande"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 292,
+    "fields": {
+        "name": "Volailles"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 293,
+    "fields": {
+        "name": "Produits panés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 294,
+    "fields": {
+        "name": "Poulets"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 295,
+    "fields": {
+        "name": "Préparations au poulet"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 296,
+    "fields": {
+        "name": "Cordons bleus"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 297,
+    "fields": {
+        "name": "Cordons bleus de poulet"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 298,
+    "fields": {
+        "name": "Boissons végétales de fruits é coque"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 299,
+    "fields": {
+        "name": "Boissons végétales de noisette"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 300,
+    "fields": {
+        "name": "Spécialité é la Moutarde"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 301,
+    "fields": {
+        "name": "Biscuits feuilletés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 302,
+    "fields": {
+        "name": "Palmiers"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 303,
+    "fields": {
+        "name": "Ketchup"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 304,
+    "fields": {
+        "name": "Sucres"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 305,
+    "fields": {
+        "name": "Sucres glaces"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 306,
+    "fields": {
+        "name": "Veloutés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 307,
+    "fields": {
+        "name": "Soupes é réchauffer"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 308,
+    "fields": {
+        "name": "Veloutés de légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 309,
+    "fields": {
+        "name": "Soupes en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 310,
+    "fields": {
+        "name": "Soupes de légumes en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 311,
+    "fields": {
+        "name": "Fromages fondus"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 312,
+    "fields": {
+        "name": "Barquettes aux fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 313,
+    "fields": {
+        "name": "Biscuits é la fraise"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 314,
+    "fields": {
+        "name": "Barquettes é la fraise"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 315,
+    "fields": {
+        "name": "Laits de coco"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 316,
+    "fields": {
+        "name": "Yaourts é la grecque"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 317,
+    "fields": {
+        "name": "Jus de pomme"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 318,
+    "fields": {
+        "name": "Jus de pommes pur jus"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 319,
+    "fields": {
+        "name": "Légumineuses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 320,
+    "fields": {
+        "name": "Graines"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 321,
+    "fields": {
+        "name": "Aliments é base de plantes en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 322,
+    "fields": {
+        "name": "Graines de légumineuses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 323,
+    "fields": {
+        "name": "Légumes en conserve"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 324,
+    "fields": {
+        "name": "Légumes secs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 325,
+    "fields": {
+        "name": "Lentilles"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 326,
+    "fields": {
+        "name": "Plats é la volaille"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 327,
+    "fields": {
+        "name": "Lentilles préparées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 328,
+    "fields": {
+        "name": "Géteaux marbrés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 329,
+    "fields": {
+        "name": "Sucres roux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 330,
+    "fields": {
+        "name": "Sucres de canne"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 331,
+    "fields": {
+        "name": "Cassonades"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 332,
+    "fields": {
+        "name": "Sucre non raffiné"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 333,
+    "fields": {
+        "name": "Yaourts brassés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 334,
+    "fields": {
+        "name": "Yaourts au lait de vache"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 335,
+    "fields": {
+        "name": "Yaourts sucrés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 336,
+    "fields": {
+        "name": "Yaourts vanille"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 337,
+    "fields": {
+        "name": "Houmous"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 338,
+    "fields": {
+        "name": "Pétés végétaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 339,
+    "fields": {
+        "name": "Plats préparés d'origine végétale"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 340,
+    "fields": {
+        "name": "Charcuteries cuites"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 341,
+    "fields": {
+        "name": "Blancs de volaille en tranches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 342,
+    "fields": {
+        "name": "Blancs de poulet en tranches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 343,
+    "fields": {
+        "name": "Crémes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 344,
+    "fields": {
+        "name": "Crémes fouettées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 345,
+    "fields": {
+        "name": "Assaisonnements"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 346,
+    "fields": {
+        "name": "Thons entiers"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 347,
+    "fields": {
+        "name": "Sandwichs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 348,
+    "fields": {
+        "name": "Céréales préparées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 349,
+    "fields": {
+        "name": "Steaks végétaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 350,
+    "fields": {
+        "name": "Plats é base de boulgour"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 351,
+    "fields": {
+        "name": "Plats préparés é faible teneur en matiéres grasses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 352,
+    "fields": {
+        "name": "Hamburgers végétariens"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 353,
+    "fields": {
+        "name": "Galettes de céréales aux légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 354,
+    "fields": {
+        "name": "Plats préparés au fromage"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 355,
+    "fields": {
+        "name": "Nectars de fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 356,
+    "fields": {
+        "name": "Nectars de pomme"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 357,
+    "fields": {
+        "name": "Beurres doux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 358,
+    "fields": {
+        "name": "Beurres allégés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 359,
+    "fields": {
+        "name": "Produits de montagne"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 360,
+    "fields": {
+        "name": "Eaux de montagne"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 361,
+    "fields": {
+        "name": "Thés glacés saveur menthe"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 362,
+    "fields": {
+        "name": "Génoise"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 363,
+    "fields": {
+        "name": "Barquettes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 364,
+    "fields": {
+        "name": "Barquettes au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 365,
+    "fields": {
+        "name": "Pains Burger"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 366,
+    "fields": {
+        "name": "Moutardes é l'ancienne"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 367,
+    "fields": {
+        "name": "Jus de fruits é base de concentré"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 368,
+    "fields": {
+        "name": "Boissons é l'orange"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 369,
+    "fields": {
+        "name": "Jus d'orange é base de concentré"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 370,
+    "fields": {
+        "name": "Surgelés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 371,
+    "fields": {
+        "name": "Fruits de mer surgelés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 372,
+    "fields": {
+        "name": "Poissons surgelés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 373,
+    "fields": {
+        "name": "Poissons panés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 374,
+    "fields": {
+        "name": "Poissons panés de colin"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 375,
+    "fields": {
+        "name": "Batonnets de poisson"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 376,
+    "fields": {
+        "name": "Yaourts au Bifidus"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 377,
+    "fields": {
+        "name": "Yaourts au bifidus nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 378,
+    "fields": {
+        "name": "épinards hachés surgelés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 379,
+    "fields": {
+        "name": "épinards é la créme"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 380,
+    "fields": {
+        "name": "Nutella"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 381,
+    "fields": {
+        "name": "Chocolats édulcorés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 382,
+    "fields": {
+        "name": "Chocolats noirs aux édulcorants"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 383,
+    "fields": {
+        "name": "Boissons chaudes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 384,
+    "fields": {
+        "name": "Boissons instantanées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 385,
+    "fields": {
+        "name": "Chicorée soluble"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 386,
+    "fields": {
+        "name": "Chicorée et café en poudre soluble"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 387,
+    "fields": {
+        "name": "Pizzas tartes salées et quiches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 388,
+    "fields": {
+        "name": "Pizzas"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 389,
+    "fields": {
+        "name": "Plats au porc"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 390,
+    "fields": {
+        "name": "Pizza jambon fromage"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 391,
+    "fields": {
+        "name": "Barres chocolatées au lait et aux céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 392,
+    "fields": {
+        "name": "Entrées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 393,
+    "fields": {
+        "name": "Huiles de colza"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 394,
+    "fields": {
+        "name": "Fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 395,
+    "fields": {
+        "name": "Pommes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 396,
+    "fields": {
+        "name": "Chocolats en poudre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 397,
+    "fields": {
+        "name": "Chocolats au lait"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 398,
+    "fields": {
+        "name": "Yaourts au soja"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 399,
+    "fields": {
+        "name": "Desserts au soja"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 400,
+    "fields": {
+        "name": "Yaourts soja natures"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 401,
+    "fields": {
+        "name": "Pains azymes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 402,
+    "fields": {
+        "name": "Yaourts aux fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 403,
+    "fields": {
+        "name": "Yaourts é la myrtille"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 404,
+    "fields": {
+        "name": "FROMAGES DéGUSTATIONS"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 405,
+    "fields": {
+        "name": "Boissons lactées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 406,
+    "fields": {
+        "name": "Boissons fermentées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 407,
+    "fields": {
+        "name": "Boissons lactées fermentées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 408,
+    "fields": {
+        "name": "Yaourts é boire"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 409,
+    "fields": {
+        "name": "Yaourts aromatisés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 410,
+    "fields": {
+        "name": "Yaourts é boire goét fraise"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 411,
+    "fields": {
+        "name": "Biscottes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 412,
+    "fields": {
+        "name": "Biscottes complétes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 413,
+    "fields": {
+        "name": "Boissons é la canneberge"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 414,
+    "fields": {
+        "name": "Laits d'amande"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 415,
+    "fields": {
+        "name": "Sucres complets"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 416,
+    "fields": {
+        "name": "Faisselles"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 417,
+    "fields": {
+        "name": "Pains de mie complet en tranches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 418,
+    "fields": {
+        "name": "Fromages é péte molle é croéte fleurie"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 419,
+    "fields": {
+        "name": "Camemberts"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 420,
+    "fields": {
+        "name": "Plats é base de haricots"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 421,
+    "fields": {
+        "name": "Cassoulets"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 422,
+    "fields": {
+        "name": "Crépes et galettes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 423,
+    "fields": {
+        "name": "Crépes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 424,
+    "fields": {
+        "name": "Crépes de froment"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 425,
+    "fields": {
+        "name": "Charcuteries diverses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 426,
+    "fields": {
+        "name": "Allumettes de porc"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 427,
+    "fields": {
+        "name": "Lardons de porc"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 428,
+    "fields": {
+        "name": "Lardons de porc fumés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 429,
+    "fields": {
+        "name": "Pickles"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 430,
+    "fields": {
+        "name": "Pickles d'origine végétale"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 431,
+    "fields": {
+        "name": "Pickles de légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 432,
+    "fields": {
+        "name": "Pickles de concombres"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 433,
+    "fields": {
+        "name": "Cornichons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 434,
+    "fields": {
+        "name": "Cornichons au vinaigre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 435,
+    "fields": {
+        "name": "Sablés nappés de chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 436,
+    "fields": {
+        "name": "Galettes de riz au chocolat noir"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 437,
+    "fields": {
+        "name": "Boissons multivégétaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 438,
+    "fields": {
+        "name": "Pétes é tarte"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 439,
+    "fields": {
+        "name": "Pétes feuilletées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 440,
+    "fields": {
+        "name": "Pizzas et tartes surgelées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 441,
+    "fields": {
+        "name": "Pizzas surgelées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 442,
+    "fields": {
+        "name": "Pizza aux légumes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 443,
+    "fields": {
+        "name": "Plats é base de semoule"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 444,
+    "fields": {
+        "name": "Taboulés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 445,
+    "fields": {
+        "name": "Taboulés orientaux"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 446,
+    "fields": {
+        "name": "Taboulés é l'huile d'olive"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 447,
+    "fields": {
+        "name": "Brioches au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 448,
+    "fields": {
+        "name": "Salades"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 449,
+    "fields": {
+        "name": "Salades composées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 450,
+    "fields": {
+        "name": "Salades de pétes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 451,
+    "fields": {
+        "name": "Fromages de brebis"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 452,
+    "fields": {
+        "name": "Fromages blancs au lait de brebis"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 453,
+    "fields": {
+        "name": "Gouter"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 454,
+    "fields": {
+        "name": "Desserts glacés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 455,
+    "fields": {
+        "name": "Glaces et sorbets"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 456,
+    "fields": {
+        "name": "Glaces"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 457,
+    "fields": {
+        "name": "Bétonnets glacés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 458,
+    "fields": {
+        "name": "Bétonnets glacés é la vanille"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 459,
+    "fields": {
+        "name": "Yaourts au citron"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 460,
+    "fields": {
+        "name": "Yaourts brassés au citron"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 461,
+    "fields": {
+        "name": "Céleris Rémoulade"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 462,
+    "fields": {
+        "name": "Rochers au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 463,
+    "fields": {
+        "name": "Beurres moulés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 464,
+    "fields": {
+        "name": "Beurres pasteurisés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 465,
+    "fields": {
+        "name": "Courgettes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 466,
+    "fields": {
+        "name": "Fromages industriels"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 467,
+    "fields": {
+        "name": "Barres de céréales aux fruits é coques"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 468,
+    "fields": {
+        "name": "Barre céréaliére aux amandes ou aux noisettes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 469,
+    "fields": {
+        "name": "Barre céréaliére aux noisettes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 470,
+    "fields": {
+        "name": "Semoules de céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 471,
+    "fields": {
+        "name": "Semoules de blé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 472,
+    "fields": {
+        "name": "Semoules de blé dur"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 473,
+    "fields": {
+        "name": "Semoules de blé dur pour couscous"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 474,
+    "fields": {
+        "name": "Boissons végétales de blé"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 475,
+    "fields": {
+        "name": "Boissons végétales d'épeautre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 476,
+    "fields": {
+        "name": "Yaourts au lait de chévre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 477,
+    "fields": {
+        "name": "Yaourts entiers"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 478,
+    "fields": {
+        "name": "Smoothies"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 479,
+    "fields": {
+        "name": "Spéculoos"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 480,
+    "fields": {
+        "name": "Yaourts aux céréales"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 481,
+    "fields": {
+        "name": "Pétes séches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 482,
+    "fields": {
+        "name": "Pétes de blé dur"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 483,
+    "fields": {
+        "name": "Coquillettes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 484,
+    "fields": {
+        "name": "Coquillettes de blé dur"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 485,
+    "fields": {
+        "name": "Eaux aromatisées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 486,
+    "fields": {
+        "name": "Laits d'amande au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 487,
+    "fields": {
+        "name": "Laits aromatisés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 488,
+    "fields": {
+        "name": "Laits aromatisés au chocolat"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 489,
+    "fields": {
+        "name": "Produits déshydratés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 490,
+    "fields": {
+        "name": "Produits lyophilisés é reconstituer"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 491,
+    "fields": {
+        "name": "Préparations é base de pommes de terre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 492,
+    "fields": {
+        "name": "Purées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 493,
+    "fields": {
+        "name": "Purées de pommes de terre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 494,
+    "fields": {
+        "name": "Purées de pommes de terre en flocons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 495,
+    "fields": {
+        "name": "Purée de pommes de terre é base de flocons reconstituée avec lait entier"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 496,
+    "fields": {
+        "name": "Sucres de coco"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 497,
+    "fields": {
+        "name": "Pétisseries"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 498,
+    "fields": {
+        "name": "Céréales en grains"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 499,
+    "fields": {
+        "name": "Blés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 500,
+    "fields": {
+        "name": "Blés durs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 501,
+    "fields": {
+        "name": "Blés durs précuits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 502,
+    "fields": {
+        "name": "Chocolats aux amandes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 503,
+    "fields": {
+        "name": "Chocolats noirs aux amandes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 504,
+    "fields": {
+        "name": "Nectars d'orange"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 505,
+    "fields": {
+        "name": "Chips de pommes de terre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 506,
+    "fields": {
+        "name": "Chips de pommes de terre é l'huile de tournesol"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 507,
+    "fields": {
+        "name": "Saucissons"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 508,
+    "fields": {
+        "name": "Saucissons secs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 509,
+    "fields": {
+        "name": "Saucissons secs pur porc"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 510,
+    "fields": {
+        "name": "Spaghetti"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 511,
+    "fields": {
+        "name": "Linguine"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 512,
+    "fields": {
+        "name": "Céréales de grains soufflés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 513,
+    "fields": {
+        "name": "Galettes de céréales BIO"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 514,
+    "fields": {
+        "name": "Galettes de froment complet"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 515,
+    "fields": {
+        "name": "Galettes de sarrasin ou blé noir complet"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 516,
+    "fields": {
+        "name": "Origine végétale"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 517,
+    "fields": {
+        "name": "Chocolats au lait extra fin"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 518,
+    "fields": {
+        "name": "Sirops aromatisés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 519,
+    "fields": {
+        "name": "Sirops de grenadine"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 520,
+    "fields": {
+        "name": "Sirops aromatisés sans sucre"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 521,
+    "fields": {
+        "name": "Yaourts brassés nature"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 522,
+    "fields": {
+        "name": "Eau minérale naturelle gazéifiée"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 523,
+    "fields": {
+        "name": "Eau minérale naturelle légérement gazéifiée"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 524,
+    "fields": {
+        "name": "Pétes fraéches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 525,
+    "fields": {
+        "name": "Yaourts au bifidus aux fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 526,
+    "fields": {
+        "name": "Pains d'épices"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 527,
+    "fields": {
+        "name": "Pains d'épices au miel"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 528,
+    "fields": {
+        "name": "Sodas aux fruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 529,
+    "fields": {
+        "name": "Sodas é l'orange"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 530,
+    "fields": {
+        "name": "Chicoree"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 531,
+    "fields": {
+        "name": "Taboulés au poulet"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 532,
+    "fields": {
+        "name": "Sauces béarnaises"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 533,
+    "fields": {
+        "name": "Yaourts multifruits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 534,
+    "fields": {
+        "name": "Crépes dentelle"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 535,
+    "fields": {
+        "name": "Crépes dentelle natures"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 536,
+    "fields": {
+        "name": "Jus de citron"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 537,
+    "fields": {
+        "name": "Jus multifruits pur jus"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 538,
+    "fields": {
+        "name": "Compotes pommes vanille"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 539,
+    "fields": {
+        "name": "Emmentals franéais"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 540,
+    "fields": {
+        "name": "Bretzels"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 541,
+    "fields": {
+        "name": "Ketchup Bio"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 542,
+    "fields": {
+        "name": "Fruits é coques"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 543,
+    "fields": {
+        "name": "Aliments é base de plantes séchées"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 544,
+    "fields": {
+        "name": "Fruits secs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 545,
+    "fields": {
+        "name": "Mélanges de fruits secs"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 546,
+    "fields": {
+        "name": "Laits"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 547,
+    "fields": {
+        "name": "Compotes pommes mangue"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 548,
+    "fields": {
+        "name": "Saucisses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 549,
+    "fields": {
+        "name": "Saucisses de volaille"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 550,
+    "fields": {
+        "name": "Saucisses de poulet"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 551,
+    "fields": {
+        "name": "Sardines sans huile"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 552,
+    "fields": {
+        "name": "Yaourts au bifidus aromatisés"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 553,
+    "fields": {
+        "name": "Dindes"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 554,
+    "fields": {
+        "name": "Préparations é la dinde"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 555,
+    "fields": {
+        "name": "Cordons bleus de dinde"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 556,
+    "fields": {
+        "name": "Sauces barbecue"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 557,
+    "fields": {
+        "name": "Crémes épaisses"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 558,
+    "fields": {
+        "name": "Crémes fraéches"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 559,
+    "fields": {
+        "name": "Crémes légéres"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 560,
+    "fields": {
+        "name": "Blés tendres"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 561,
+    "fields": {
+        "name": "Quinoa"
+    }
+},
+{
+    "model": "purbeurre.category",
+    "pk": 562,
+    "fields": {
+        "name": "Eau minérale gazifiée"
+    }
+}
+]
