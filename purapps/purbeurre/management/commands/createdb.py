@@ -14,7 +14,7 @@ class Command(BaseCommand):
 
     def construct_db(self):
         """Commands to construct the db."""
-        for page in range(1, 2):
+        for page in range(1, 4):
             down_off = Downloader(page)
             extracted = down_off.extract_data()
             cleaner = OffCleaner()
@@ -27,15 +27,9 @@ class Command(BaseCommand):
         management.call_command("migrate", verbosity=0, interactive=False)
 
         if Nutriscore.objects.filter(type="e").exists():
-            print("The db will be emptied and updated")
-            # Keep users in db:
-            Product.objects.all().delete()
+            print("The db will be updated")
 
-            # Or flush:
-            # management.call_command("flush", verbosity=0, interactive=False)
-            self.construct_db()
-            print("Done, the db is ready.")
         else:
             print("The db is empty. Wait a few moments..")
-            self.construct_db()
-            print("Done, the db is ready.")
+        self.construct_db()
+        print("Done, the db is ready.")
