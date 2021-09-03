@@ -13,7 +13,7 @@ before_script:
 services:
   - postgresql
 
-env: DJANGO_SETTINGS_MODULE=app.settings.py
+env: DJANGO_SETTINGS_MODULE="app.settings"
 
 # command to run tests
 script:
