@@ -62,48 +62,43 @@ class FillDbTestCase(TestCase):
 
         for product in products:
 
-            try:
-                Nutriscore.objects.get(type=product["nutriscore_grade"])
-            except Nutriscore.DoesNotExist:
-                Nutriscore.objects.create(type=product["nutriscore_grade"])
+            Nutriscore.objects.update_or_create(
+                type=product["nutriscore_grade"],
+                defaults={"type": product["nutriscore_grade"]},
+            )
 
-            try:
-                Product.objects.get(name=product["product_name_fr"])
-            except Product.DoesNotExist:
+            last_nut = Nutriscore.objects.filter(
+                type=product["nutriscore_grade"]
+            ).values("id")
 
-                last_nut = Nutriscore.objects.filter(
-                    type=product["nutriscore_grade"]
-                ).values("id")
-
-                Product.objects.create(
-                    name=product["product_name_fr"],
-                    url=product["url"],
-                    brand=product["brands"],
-                    nutriments={
+            Product.objects.update_or_create(
+                name=product["product_name_fr"],
+                defaults={
+                    "name": product["product_name_fr"],
+                    "url": product["url"],
+                    "brand": product["brands"],
+                    "nutriments": {
                         f"{k}": v
                         for k, v in product["nutriments"].items()
                         if "100g" in k
                     },
-                    image=product["image_small_url"],
-                    nutriscore_id=last_nut,
+                    "image": product["image_small_url"],
+                    "nutriscore_id": last_nut,
+                },
+            )
+
+            for category in product["categories"].split(","):
+                categorie = category.strip()
+
+                Category.objects.update_or_create(
+                    name=categorie, defaults={"name": categorie}
                 )
 
-                for category in product["categories"].split(","):
-                    categorie = category.strip()
+                prod = Product.objects.get(name=product["product_name_fr"])
 
-                    try:
-                        Category.objects.get(name=categorie)
-                    except Category.DoesNotExist:
+                category = Category.objects.filter(name=categorie).values("id").first()
 
-                        Category.objects.create(name=categorie)
-
-                    prod = Product.objects.get(name=product["product_name_fr"])
-
-                    category = (
-                        Category.objects.filter(name=categorie).values("id").first()
-                    )
-
-                    prod.categories.add(category.get("id"))
+                prod.categories.add(category.get("id"))
 
 
 class FindSubstitutesTestCase(FillDbTestCase):
