@@ -6,7 +6,7 @@ python:
 branches:
   only:
     - dev
-  # command to install dependencies
+# command to install dependencies
 before_script:
   - pip install -r requirements.txt
 
