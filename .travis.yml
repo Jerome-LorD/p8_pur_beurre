@@ -19,8 +19,8 @@ before_install:
 before_script:
   # - pip install -r requirements.txt
   - python manage.py collectstatic
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - python manage.py createdb
+  # - psql -c 'create database travis_ci_test;' -U postgres
+  # - python manage.py createdb
 
 services:
   - postgresql
