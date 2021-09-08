@@ -2,7 +2,7 @@ language: python
 python:
   - '3.9'
 
-# dist: focal # or bionic | xenial | trusty | precise with xenial as default
+dist: focal # or bionic | xenial | trusty | precise with xenial as default
 
 # safelist
 branches:
@@ -17,10 +17,7 @@ before_install:
 
 # command to install dependencies
 before_script:
-  # - pip install -r requirements.txt
   - python manage.py collectstatic
-  # - psql -c 'create database travis_ci_test;' -U postgres
-  # - python manage.py createdb
 
 services:
   - postgresql
