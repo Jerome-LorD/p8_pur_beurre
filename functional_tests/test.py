@@ -8,7 +8,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver import FirefoxOptions
+from selenium.webdriver.firefox.options import Options
 
 
 class SeleniumTests(StaticLiveServerTestCase):
@@ -20,7 +21,9 @@ class SeleniumTests(StaticLiveServerTestCase):
     def setUpClass(cls):
         """Set up class."""
         super().setUpClass()
-        cls.browser = WebDriver()
+        options = Options()
+        options.headless = True
+        cls.browser = webdriver.Firefox(options=options)
         cls.browser.implicitly_wait(2)
         cls.timeout = 5
 
