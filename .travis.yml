@@ -2,7 +2,7 @@ language: python
 python:
   - '3.9'
 
-dist: focal # or bionic | xenial | trusty | precise with xenial as default
+# dist: focal # or bionic | xenial | trusty | precise with xenial as default
 
 # safelist
 branches:
