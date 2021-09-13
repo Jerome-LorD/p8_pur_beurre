@@ -55,10 +55,9 @@ class Insert:
                         type=product["nutriscore_grade"]
                     ).values("id")
 
-                    Product.objects.update_or_create(
+                    dbproduct, _ = Product.objects.update_or_create(
                         name=product["product_name_fr"],
                         defaults={
-                            "name": product["product_name_fr"],
                             "url": product["url"],
                             "brand": product["brands"],
                             "nutriments": {
@@ -74,17 +73,11 @@ class Insert:
                     for category in product["categories"].split(","):
                         categorie = category.strip()
 
-                        Category.objects.update_or_create(
+                        category, _ = Category.objects.update_or_create(
                             name=categorie, defaults={"name": categorie}
                         )
 
-                        prod = Product.objects.get(name=product["product_name_fr"])
-
-                        category = (
-                            Category.objects.filter(name=categorie).values("id").first()
-                        )
-
-                        prod.categories.add(category.get("id"))
+                        dbproduct.categories.add(category)
 
 
 class Cleaner:
